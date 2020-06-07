@@ -20,7 +20,7 @@ class Agent{
     // this.theta += map(this.angle, 0, 1, -0.5, 0.5)*this.stepSize;
     // this.phi += map(this.angle, 0, 1, -0.5, 0.5)*this.stepSize;
 
-    this.theta += sin(this.angle)*20;
+    this.theta += sin(this.angle)*50;
     this.phi += cos(this.angle);
 
     // console.log(sin(this.angle));
