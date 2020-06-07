@@ -16,7 +16,7 @@ class Agent{
   }
 
   move(){
-    this.angle = noise(this.theta / noiseScale, this.phi / noiseScale);
+    this.angle = noise(this.theta / this.noiseScale, this.phi / this.noiseScale);
     // this.theta += map(this.angle, 0, 1, -0.5, 0.5)*this.stepSize;
     // this.phi += map(this.angle, 0, 1, -0.5, 0.5)*this.stepSize;
 

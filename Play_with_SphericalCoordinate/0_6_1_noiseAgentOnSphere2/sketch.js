@@ -4,7 +4,6 @@ let agents = [];
 
 let thetaNoise;
 let offset = 0;
-let noiseScale = 0.015;
 
 function setup(){
   createCanvas(800, 600, WEBGL);//size(600, 400);
