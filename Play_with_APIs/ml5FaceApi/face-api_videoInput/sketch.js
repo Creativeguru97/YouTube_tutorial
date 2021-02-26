@@ -1,4 +1,3 @@
-// ml5 Face Detection Model
 let faceapi;
 let detections = [];
 
@@ -11,7 +10,8 @@ function setup() {
 
   // Creat the video: ビデオオブジェクトを作る
   video = createCapture(VIDEO);
-  video.size(width, height);//Change the canvas then ratio of video input changes too.
+  //Change the video input's aspect ratio according to canvas: キャンバスに合わせてビデオインプットの画面比を帰る．
+  video.size(width, height);
   video.id('video');
 
   const faceOptions = {
@@ -52,7 +52,7 @@ function drawLandmarks(detections){
     for (f=0; f < detections.length; f++){
       let points = detections[f].landmarks.positions;
       for (let i = 0; i < points.length; i++) {
-        stroke(56, 161, 219);
+        stroke(44, 169, 225);
         strokeWeight(3);
         point(points[i]._x, points[i]._y);
       }
@@ -60,12 +60,11 @@ function drawLandmarks(detections){
   }
 }
 
-
 function drawBoxs(detections){
   if (detections.length > 0) {//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
     for (f=0; f < detections.length; f++){
       let {_x, _y, _width, _height} = detections[0].alignedRect._box;
-      stroke(56, 161, 219);
+      stroke(44, 169, 225);
       strokeWeight(1);
       noFill();
       rect(_x, _y, _width, _height);
@@ -79,7 +78,7 @@ function drawExpressions(detections, x, y, textYSpace){
     textFont('Helvetica Neue');
     textSize(14);
     noStroke();
-    fill(56, 161, 219);
+    fill(44, 169, 225);
 
     text("neutral:       " + nf(neutral*100, 2, 2)+"%", x, y);
     text("happiness: " + nf(happy*100, 2, 2)+"%", x, y+textYSpace);
