@@ -1,8 +1,8 @@
 let faceapi;
 let detections = [];
 
-let canvas;
 let video;
+let canvas;
 
 function setup() {
   canvas = createCanvas(480, 360);
@@ -17,14 +17,16 @@ function setup() {
   const faceOptions = {
     withLandmarks: true,
     withExpressions: true,
-    withDescriptors: false
+    withDescriptors: true,
+    minConfidence: 0.5
   };
+
+  //Initialize the model: モデルの初期化
   faceapi = ml5.faceApi(video, faceOptions, faceReady);
 }
 
-// Start detecting faces: 顔認識開始
 function faceReady() {
-  faceapi.detect(gotFaces);
+  faceapi.detect(gotFaces);// Start detecting faces: 顔認識開始
 }
 
 // Got faces: 顔を検知
@@ -34,13 +36,13 @@ function gotFaces(error, result) {
     return;
   }
 
-  //Now all the data in this detections: 全ての検知されたデータがこのdetectionの中に
-  detections = result;
-  faceapi.detect(gotFaces);
+  detections = result;　//Now all the data in this detections: 全ての検知されたデータがこのdetectionの中に
 
   drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
   drawBoxs(detections);//Draw detection box: 顔の周りの四角の描画
   drawExpressions(detections, 20, 250, 14);//Draw face expression: 表情の描画
+
+  faceapi.detect(gotFaces);// Call the function again at here: 認識実行の関数をここでまた呼び出す
 }
 
 function draw() {
