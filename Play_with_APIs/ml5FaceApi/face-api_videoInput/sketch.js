@@ -37,16 +37,26 @@ function gotFaces(error, result) {
   }
 
   detections = result;　//Now all the data in this detections: 全ての検知されたデータがこのdetectionの中に
+  console.log(detections);
 
-  drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
+  clear();//Make back ground transparent: 背景を透明にする
   drawBoxs(detections);//Draw detection box: 顔の周りの四角の描画
+  drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
   drawExpressions(detections, 20, 250, 14);//Draw face expression: 表情の描画
 
   faceapi.detect(gotFaces);// Call the function again at here: 認識実行の関数をここでまた呼び出す
 }
 
-function draw() {
-  clear();//Make back ground transparent: 背景を透明にする
+function drawBoxs(detections){
+  if (detections.length > 0) {//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
+    for (f=0; f < detections.length; f++){
+      let {_x, _y, _width, _height} = detections[0].alignedRect._box;
+      stroke(44, 169, 225);
+      strokeWeight(1);
+      noFill();
+      rect(_x, _y, _width, _height);
+    }
+  }
 }
 
 function drawLandmarks(detections){
@@ -58,18 +68,6 @@ function drawLandmarks(detections){
         strokeWeight(3);
         point(points[i]._x, points[i]._y);
       }
-    }
-  }
-}
-
-function drawBoxs(detections){
-  if (detections.length > 0) {//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
-    for (f=0; f < detections.length; f++){
-      let {_x, _y, _width, _height} = detections[0].alignedRect._box;
-      stroke(44, 169, 225);
-      strokeWeight(1);
-      noFill();
-      rect(_x, _y, _width, _height);
     }
   }
 }
