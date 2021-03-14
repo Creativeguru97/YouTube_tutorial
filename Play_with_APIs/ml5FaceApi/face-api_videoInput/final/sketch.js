@@ -6,13 +6,11 @@ let canvas;
 
 function setup() {
   canvas = createCanvas(480, 360);
-  canvas.id('canvas');
+  canvas.id("canvas");
 
-  // Creat the video: ビデオオブジェクトを作る
-  video = createCapture(VIDEO);
-  //Change the video input's aspect ratio according to canvas: キャンバスに合わせてビデオインプットの画面比を帰る．
+  video = createCapture(VIDEO);// Creat the video: ビデオオブジェクトを作る
+  video.id("video");
   video.size(width, height);
-  video.id('video');
 
   const faceOptions = {
     withLandmarks: true,
@@ -37,9 +35,9 @@ function gotFaces(error, result) {
   }
 
   detections = result;　//Now all the data in this detections: 全ての検知されたデータがこのdetectionの中に
-  console.log(detections);
+  // console.log(detections);
 
-  clear();//Make back ground transparent: 背景を透明にする
+  clear();//Draw transparent background;: 透明の背景を描く
   drawBoxs(detections);//Draw detection box: 顔の周りの四角の描画
   drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
   drawExpressions(detections, 20, 250, 14);//Draw face expression: 表情の描画
