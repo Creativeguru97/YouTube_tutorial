@@ -48,7 +48,7 @@ function gotFaces(error, result) {
 function drawBoxs(detections){
   if (detections.length > 0) {//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
     for (f=0; f < detections.length; f++){
-      let {_x, _y, _width, _height} = detections[0].alignedRect._box;
+      let {_x, _y, _width, _height} = detections[f].alignedRect._box;
       stroke(44, 169, 225);
       strokeWeight(1);
       noFill();
