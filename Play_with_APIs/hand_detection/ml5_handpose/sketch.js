@@ -54,9 +54,7 @@ function drawHands(){
   strokeWeight(6);
 
   for(let i=0; i<detections.length; i++){
-    //--- palm base ---
     for(let j=0; j<detections[i].landmarks.length; j++){
-
       point(
         detections[i].landmarks[j][0],
         detections[i].landmarks[j][1],
