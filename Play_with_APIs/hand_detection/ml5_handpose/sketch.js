@@ -42,92 +42,49 @@ function draw(){
   translate(-width/2, -height/2);
 
   if(detections.length > 0){
-    // drawHands();
-    drawParts();
+    drawLines([0, 5, 9, 13, 17, 0]);//palm
+    drawLines([0, 1, 2, 3 ,4]);//thumb
+    drawLines([5, 6, 7, 8]);//index finger
+    drawLines([9, 10, 11, 12]);//middle finger
+    drawLines([13, 14, 15, 16]);//ring finger
+    drawLines([17, 18, 19, 20]);//pinky
+
+    drawLandmarks([0, 1], 0);//palm base
+    drawLandmarks([1, 5], 60);//thumb
+    drawLandmarks([5, 9], 120);//index finger
+    drawLandmarks([9, 13], 180);//middle finger
+    drawLandmarks([13, 17], 240);//ring finger
+    drawLandmarks([17, 21], 300);//pinky
   }
 }
 
-
-function drawHands(){
-  noFill();
-  stroke(255);
-  strokeWeight(6);
-
-  for(let i=0; i<detections.length; i++){
-    for(let j=0; j<detections[i].landmarks.length; j++){
-      point(
-        detections[i].landmarks[j][0],
-        detections[i].landmarks[j][1],
-        detections[i].landmarks[j][2]
-      );
+function drawLandmarks(indexArray, hue){
+    noFill();
+    strokeWeight(10);
+    for(let i=0; i<detections.length; i++){
+      for(let j=indexArray[0]; j<indexArray[1]; j++){
+        let x = detections[i].landmarks[j][0];
+        let y = detections[i].landmarks[j][1];
+        let z = detections[i].landmarks[j][2];
+        stroke(hue, 40, 255);
+        point(x, y);
+      }
     }
   }
-}//Function end
 
-
-function drawParts(){
-  noFill();
-  strokeWeight(6);
-
+function drawLines(index){
+  stroke(0, 0, 255);
+  strokeWeight(3);
   for(let i=0; i<detections.length; i++){
-    //--- palm base ---
-    for(let j=0; j<detections[i].annotations.palmBase.length; j++){
-      stroke(0, 40, 255);
-      point(
-        detections[i].annotations.palmBase[j][0],
-        detections[i].annotations.palmBase[j][1],
-        detections[i].annotations.palmBase[j][2]
-      );
-    }
+    for(let j=0; j<index.length-1; j++){
+      let x = detections[i].landmarks[index[j]][0];
+      let y = detections[i].landmarks[index[j]][1];
+      let z = detections[i].landmarks[index[j]][2];
 
-    //--- thumb ---
-    for(let j=0; j<detections[i].annotations.thumb.length; j++){
-      stroke(60, 40, 255);
-      point(
-        detections[i].annotations.thumb[j][0],
-        detections[i].annotations.thumb[j][1],
-        detections[i].annotations.thumb[j][2]
-      );
-    }
-
-    //--- index finger ---
-    for(let j=0; j<detections[i].annotations.indexFinger.length; j++){
-      stroke(120, 40, 255);
-      point(
-        detections[i].annotations.indexFinger[j][0],
-        detections[i].annotations.indexFinger[j][1],
-        detections[i].annotations.indexFinger[j][2]
-      );
-    }
-
-    //--- middle finger ---
-    for(let j=0; j<detections[i].annotations.middleFinger.length; j++){
-      stroke(180, 40, 255);
-      point(
-        detections[i].annotations.middleFinger[j][0],
-        detections[i].annotations.middleFinger[j][1],
-        detections[i].annotations.middleFinger[j][2]
-      );
-    }
-
-    //--- ring finger ---
-    for(let j=0; j<detections[i].annotations.ringFinger.length; j++){
-      stroke(240, 40, 255);
-      point(
-        detections[i].annotations.ringFinger[j][0],
-        detections[i].annotations.ringFinger[j][1],
-        detections[i].annotations.ringFinger[j][2]
-      );
-    }
-
-    //--- pinky ---
-    for(let j=0; j<detections[i].annotations.pinky.length; j++){
-      stroke(300, 40, 255);
-      point(
-        detections[i].annotations.pinky[j][0],
-        detections[i].annotations.pinky[j][1],
-        detections[i].annotations.pinky[j][2]
-      );
+      let _x = detections[i].landmarks[index[j+1]][0];
+      let _y = detections[i].landmarks[index[j+1]][1];
+      let _z = detections[i].landmarks[index[j+1]][2];
+      line(x, y, z, _x, _y, _z);
     }
   }
-}//Function end
+}

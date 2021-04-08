@@ -73,7 +73,7 @@ function drawLandmarks(detections){
 function drawExpressions(detections, x, y, textYSpace){
   if(detections.length > 0){//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
     let {neutral, happy, angry, sad, disgusted, surprised, fearful} = detections[0].expressions;
-    textFont('Helvetica Neue');
+    textFont('Helvetica Neue');
     textSize(14);
     noStroke();
     fill(44, 169, 225);

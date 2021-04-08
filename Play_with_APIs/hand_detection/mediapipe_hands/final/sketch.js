@@ -14,7 +14,7 @@ let sketch = function(p){
     p.clear();
     if(detections != undefined){
       if(detections.multiHandLandmarks != undefined){
-          // p.drawHands();
+          //p.drawHands();
           // p.drawParts();
 
           p.drawLines([0, 5, 9, 13, 17, 0]);//palm
@@ -37,9 +37,9 @@ let sketch = function(p){
   p.drawHands = function(){
     for(let i=0; i<detections.multiHandLandmarks.length; i++){
       for(let j=0; j<detections.multiHandLandmarks[i].length; j++){
-        let x = p.int(detections.multiHandLandmarks[i][j].x * p.width);
-        let y = p.int(detections.multiHandLandmarks[i][j].y * p.height);
-        // let z = p.int(detections.multiHandLandmarks[i][j].z);
+        let x = detections.multiHandLandmarks[i][j].x * p.width;
+        let y = detections.multiHandLandmarks[i][j].y * p.height;
+        let z = detections.multiHandLandmarks[i][j].z;
         // p.strokeWeight(0);
         // p.textFont('Helvetica Neue');
         // p.text(j, x, y);
@@ -52,7 +52,7 @@ let sketch = function(p){
 
   p.drawLandmarks = function(indexArray, hue){
     p.noFill();
-    p.strokeWeight(10);
+    p.strokeWeight(8);
     for(let i=0; i<detections.multiHandLandmarks.length; i++){
       for(let j=indexArray[0]; j<indexArray[1]; j++){
         let x = detections.multiHandLandmarks[i][j].x * p.width;
