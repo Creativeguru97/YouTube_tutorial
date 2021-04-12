@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Require the peer dependencies of face-landmarks-detection. -->
+<script src="https://unpkg.com/@tensorflow/tfjs-core@2.4.0/dist/tf-core.js"></script>
+<script src="https://unpkg.com/@tensorflow/tfjs-converter@2.4.0/dist/tf-converter.js"></script>
+
+<!-- You must explicitly require a TF.js backend if you're not using the tfjs union bundle. -->
+<script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.4.0/dist/tf-backend-webgl.js"></script>
+<!-- Alternatively you can use the WASM backend: <script src="https://unpkg.com/@tensorflow/tfjs-backend-wasm@2.4.0/dist/tf-backend-wasm.js"></script> -->
+
+<!-- Require face-landmarks-detection itself. -->
+<script src="https://unpkg.com/@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+  <script defer language="javascript" type="text/javascript" src="detection.js"></script>
+  <script defer language="javascript" type="text/javascript" src="sketch.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <video id="video" width="640" height="480" onloadeddata="main()"></video>
+  <!-- <div class="container">
+    <video class="input_video"></video>
+    <canvas class="output_canvas" width="640px" height="480px"></canvas>
+  </div> -->
+
+</body>
+</html>
