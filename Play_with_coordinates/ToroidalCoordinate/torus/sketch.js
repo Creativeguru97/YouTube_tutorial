@@ -5,8 +5,11 @@ let tauDensitySlider, sigmaDensitySlider, phiDensitySlider;
 let tauMaxValue, sigmaMaxValue, phiMaxValue;
 let tauDensityValue, sigmaDensityValue, phiDensityValue;
 
+let yValues = [];
+
 function setup(){
   createCanvas(960, 540, WEBGL);//size(600, 400);
+  // createCanvas(960, 540);//size(600, 400);
   angleMode(DEGREES);
   colorMode(HSB);
 
@@ -55,11 +58,7 @@ function draw(){
 
   rotateX(65);
 
-  // for(let x = -width/2; x < width/2; x += 10){
-  //   let y = gaussian(x, 200, 0, 40);
-  //   strokeWeight(10);
-  //   point(x, y, 0);
-  // }
+  let mouseXmapped = map(mouseX, 0, width, 0, 360);
 
   for(let tau = tauMaxSlider.value(); tau < tauMaxSlider.value()+1; tau += tauDensityMappedVal){
     for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += sigmaDensityMappedVal){
@@ -69,7 +68,7 @@ function draw(){
         let y = r * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
         let z = r * sin(sigma) / (cosh(tau) - cos(sigma));
         stroke(phi, 50, 255);
-        let weight = gaussian(phi, 10, 180, 45);
+        let weight = gaussian(phi, 10, mouseXmapped, 45);
         // console.log(weight);
         strokeWeight(weight);
         point(x, y, z);
@@ -101,5 +100,17 @@ function cosh(x){
 }
 
 function gaussian(x, a, b, c){
-  return a * Math.exp(-pow(x-b, 2) / pow(2*c, 2));
+  return a * Math.exp(-pow(x - (b-360), 2) / pow(2*c, 2)) +
+          a * Math.exp(-pow(x-b, 2) / pow(2*c, 2)) +
+          a * Math.exp(-pow(x - (b+360), 2) / pow(2*c, 2));
+}
+
+function gaussian(x, a, b, c, period){//I'm working on now
+  let weight = 0;
+  for(let i=0; i<1080/period; i++){
+    a * Math.exp(-pow(x - (b-360), 2) / pow(2*c, 2));
+  }
+  return a * Math.exp(-pow(x - (b-360), 2) / pow(2*c, 2)) +
+          a * Math.exp(-pow(x-b, 2) / pow(2*c, 2)) +
+          a * Math.exp(-pow(x - (b+360), 2) / pow(2*c, 2));
 }
