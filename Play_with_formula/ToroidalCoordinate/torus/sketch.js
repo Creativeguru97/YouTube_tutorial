@@ -68,20 +68,21 @@ function draw(){
 
   rotateX(65);
 
-  let mouseXmapped = map(mouseX, 0, width, 0, 360);
+  let mouseXmapped = map(mouseX, 0, width, 360, 0);
+  let mouseYmapped = map(mouseY, 0, height, 180, 0);
 
   for(let tau = tauMaxSlider.value(); tau < tauMaxSlider.value()+1; tau += tauDensityMappedVal){
     for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += sigmaDensityMappedVal){
 
       for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensityMappedVal){
-        let weight = advancedGaussian(phi, 10, mouseXmapped, softnessSlider.value(), periodSlider.value());
-
         let x = r * sinh(tau) * cos(phi) / (cosh(tau) - cos(sigma));
         let y = r * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
         let z = r * sin(sigma) / (cosh(tau) - cos(sigma));
-        stroke(phi, 50, 255);
-        // let weight = gaussian(phi, 10, mouseXmapped, 45);
+
+        // let weight = advancedGaussian(phi, 10, mouseXmapped, softnessSlider.value(), periodSlider.value());
+        let weight = advancedGaussian_2D(phi, sigma, 10, mouseXmapped, mouseYmapped, softnessSlider.value(), softnessSlider.value(), periodSlider.value());
         strokeWeight(weight);
+        stroke(phi, 50, 255);
         point(x, y, z);
       }
     }
@@ -121,11 +122,36 @@ function gaussian(x, a, b, c){
 
 function advancedGaussian(x, a, b, c, period){//I'm working on now
   let weight = 0;
-  let periodDelta = 1080/2;
+  let periodDelta = 1440/2;
 
-  for(let i=0; i<1080/period; i++){
+  for(let i=0; i<1440/period; i++){
     weight += a * Math.exp(-pow(x - (b-periodDelta), 2) / pow(2*c, 2));
     periodDelta -= period;
   }
+  return weight;
+}
+
+function gaussian_2D(x, y, a, x0, y0, cx, cy){
+  return a * Math.exp(-(pow(x-x0, 2) / pow(2*cx, 2) + pow(y-y0, 2) / pow(2*cy, 2)));
+}
+
+function advancedGaussian_2D(x, y, a, x0, y0, cx, cy, period){
+  let weight = 0;
+  let periodDeltaX = 1440/2;
+  let periodDeltaY = 1440/2;
+
+  for(let i=0; i<1440/period; i++){
+    for(let j=0; j<1440/period; j++){
+      weight += a * Math.exp(-(
+        pow(x-(x0-periodDeltaX), 2) / pow(2*cx, 2) +　
+        pow(y-(y0-periodDeltaY), 2) / pow(2*cy, 2)
+      ));
+      periodDeltaX -= period;
+    }
+    periodDeltaY -= period;
+    periodDeltaX = width/2;
+  }
+  periodDeltaY = width/2;
+
   return weight;
 }
