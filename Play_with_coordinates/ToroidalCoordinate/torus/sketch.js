@@ -5,13 +5,13 @@ let tauDensitySlider, sigmaDensitySlider, phiDensitySlider;
 let tauMaxValue, sigmaMaxValue, phiMaxValue;
 let tauDensityValue, sigmaDensityValue, phiDensityValue;
 
-let yValues = [];
+let periodSlider, softnessSlider;
+let periodValue, softnessValue;
 
 function setup(){
   createCanvas(960, 540, WEBGL);//size(600, 400);
-  // createCanvas(960, 540);//size(600, 400);
   angleMode(DEGREES);
-  colorMode(HSB);
+  colorMode(HSB, 360, 100, 100, 100);
 
   stroke(255);
 
@@ -45,10 +45,20 @@ function setup(){
   phiDensityValue.class("valueDisplay");
   phiDensitySlider = createSlider(10, 45, 45, 1);
   phiDensitySlider.class("Slider");
+
+  periodValue = createDiv();
+  periodValue.class("valueDisplay");
+  periodSlider = createSlider(45, 360, 360, 1);
+  periodSlider.class("Slider");
+
+  softnessValue = createDiv();
+  softnessValue.class("valueDisplay");
+  softnessSlider = createSlider(5, 60, 45, 1);
+  softnessSlider.class("Slider");
 }
 
 function draw(){
-  background(0);
+  background(230, 50, 15, 100);
   orbitControl(4, 4);//Mouse control
   //Detail about this function: https://p5js.org/reference/#/p5/orbitControl
 
@@ -64,12 +74,13 @@ function draw(){
     for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += sigmaDensityMappedVal){
 
       for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensityMappedVal){
+        let weight = advancedGaussian(phi, 10, mouseXmapped, softnessSlider.value(), periodSlider.value());
+
         let x = r * sinh(tau) * cos(phi) / (cosh(tau) - cos(sigma));
         let y = r * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
         let z = r * sin(sigma) / (cosh(tau) - cos(sigma));
         stroke(phi, 50, 255);
-        let weight = gaussian(phi, 10, mouseXmapped, 45);
-        // console.log(weight);
+        // let weight = gaussian(phi, 10, mouseXmapped, 45);
         strokeWeight(weight);
         point(x, y, z);
       }
@@ -87,6 +98,9 @@ function draw(){
   tauDensityValue.html("tau density value: " + tauDensityDisplayVal);
   sigmaDensityValue.html("sigma density value: " + sigmaDensityDisplayVal);
   phiDensityValue.html("phi density value: " + phiDensityDisplayVal);
+
+  periodValue.html("period value: " + periodSlider.value());
+  softnessValue.html("softness value: " + softnessSlider.value());
 }
 
 
@@ -105,12 +119,13 @@ function gaussian(x, a, b, c){
           a * Math.exp(-pow(x - (b+360), 2) / pow(2*c, 2));
 }
 
-function gaussian(x, a, b, c, period){//I'm working on now
+function advancedGaussian(x, a, b, c, period){//I'm working on now
   let weight = 0;
+  let periodDelta = 1080/2;
+
   for(let i=0; i<1080/period; i++){
-    a * Math.exp(-pow(x - (b-360), 2) / pow(2*c, 2));
+    weight += a * Math.exp(-pow(x - (b-periodDelta), 2) / pow(2*c, 2));
+    periodDelta -= period;
   }
-  return a * Math.exp(-pow(x - (b-360), 2) / pow(2*c, 2)) +
-          a * Math.exp(-pow(x-b, 2) / pow(2*c, 2)) +
-          a * Math.exp(-pow(x - (b+360), 2) / pow(2*c, 2));
+  return weight;
 }
