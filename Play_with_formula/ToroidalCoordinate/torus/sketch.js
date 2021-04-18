@@ -9,7 +9,7 @@ let periodSlider, softnessSlider;
 let periodValue, softnessValue;
 
 function setup(){
-  createCanvas(960, 540, WEBGL);//size(600, 400);
+  createCanvas(960, 540, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
