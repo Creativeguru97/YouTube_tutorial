@@ -1,17 +1,17 @@
-let thetaX;
-let thetaY;
+let theta;
+let r = 150;
 
-let r = 100;
-let freqX = 5;
-let freqY = 6;
+let freqX = 1;
+let freqY = 1;
 
 function setup(){
-  createCanvas(600, 400);
+  createCanvas(600, 600);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  noStroke();
-  fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
+  noFill();
+  stroke(32, 18, 99, 100);
+  strokeWeight(1);
 }
 
 function draw(){
@@ -23,12 +23,19 @@ function draw(){
 }
 
 function trigonometry(){
-  thetaX = map(mouseX, 0, width, 0, 720);
-  thetaY = map(mouseY, 0, width, 0, 720);
-  let ballX = r * cos(thetaX * freqX);
-  let ballY = r * sin(thetaY * freqY);
+  // freqX = 3;
+  // freqY = 2;
+  freqX = map(mouseX, 0, width, 1, 20);
+  freqY = map(mouseY, 0, height, 1, 20);
 
-  ellipse(ballX, ballY, 16, 16);
+  beginShape();
+  for(let angle = 0; angle < 360; angle += 1){
+    theta = angle;
+    let ballX = r * cos(theta * freqX);
+    let ballY = r * sin(theta * freqY);
+    vertex(ballX, ballY);
+  }
+  endShape();
 }
 
 function shadow(){

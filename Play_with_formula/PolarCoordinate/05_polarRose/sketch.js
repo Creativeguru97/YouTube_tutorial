@@ -17,6 +17,7 @@ function draw(){
 
   shadow();
   rose();
+  // madnessOfPattern();
 }
 
 function rose(){
@@ -27,6 +28,19 @@ function rose(){
     theta = angle;
     let ballX = r*cos(6*theta) * cos(theta);
     let ballY = r*cos(6*theta) * sin(theta);
+    vertex(ballX, ballY);
+  }
+  endShape();
+}
+
+function madnessOfPattern(){
+  let angleMax = map(mouseX, 0, width, 0, 360);
+
+  beginShape();
+  for(let angle = 0; angle < angleMax; angle += 0.2){
+    theta = angle;
+    let ballX = r*tan(9*theta) * pow(cos(theta), 2);
+    let ballY = r*tan(6*theta) * pow(sin(theta), 2);
     vertex(ballX, ballY);
   }
   endShape();

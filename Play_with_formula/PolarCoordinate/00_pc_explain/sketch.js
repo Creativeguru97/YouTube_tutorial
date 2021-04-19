@@ -50,8 +50,8 @@ function coordinate(){
     pointLocation.y = locationStore.y;
   }
 
-  cartesian(pointLocation.x, pointLocation.y);
-  // polar(pointLocation.x, pointLocation.y);
+  // cartesian(pointLocation.x, pointLocation.y);
+  polar(pointLocation.x, pointLocation.y);
 
   fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
   ellipse(pointLocation.x, pointLocation.y, 12, 12);
