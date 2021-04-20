@@ -1,5 +1,4 @@
-let theta;
-let r = 100;
+
 let pointLocation;
 let locationStore;
 
@@ -10,6 +9,10 @@ function setup(){
   textFont('Helvetica Neue', 14);
   textAlign(CENTER, CENTER);
 
+  stroke(32, 18, 99, 100);
+  fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
+  strokeWeight(1);
+
   pointLocation = createVector(random(-width/2-20, width/2-20), random(-height/2-20, height/2-20));
   locationStore = pointLocation;
 }
@@ -17,15 +20,12 @@ function setup(){
 function draw(){
   background(191, 23, 36, 100);//color name: 錆鼠 さびねず
   translate(width/2, height/2);
-  stroke(32, 18, 99, 100);
-  fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
-  shadow();
 
+  shadow();
   coordinate();
 }
 
 function coordinate(){
-  strokeWeight(1);
 
   //x-axis
   line(-width/2+20, 0, width/2-20, 0);
@@ -75,10 +75,18 @@ function polar(x, y){
   drawingContext.setLineDash([4, 3]);
   line(0, 0, x, y);//centre to the point
 
-  noFill();
+  for(let r = 0; r < width/2-20; r+=50){
+    for(let theta = 0; theta < 360; theta+=10){
+      let x = r * cos(theta);
+      let y = r * sin(theta);
+      point(x, y);
+    }
+  }
+
   let theta = atan2(y, x);
   let radius = sqrt(pow(x, 2) + pow(y, 2));
 
+  fill(32, 18, 99, 20);
   arc(0, 0, radius/3, radius/3, theta, 0);
   drawingContext.setLineDash([0, 0]);
 
