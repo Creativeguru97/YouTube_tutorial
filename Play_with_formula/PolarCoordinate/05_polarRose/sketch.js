@@ -22,7 +22,6 @@ function draw(){
 
 function rose(){
   let angleMax = map(mouseX, 0, width, 0, 360);
-
   beginShape();
   for(let angle = 0; angle < angleMax; angle += 1){
     theta = angle;

@@ -1,4 +1,3 @@
-let theta;
 let r = 100;
 
 function setup(){
@@ -14,24 +13,17 @@ function draw(){
   fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
   shadow();
 
-
-  // ball();
-  multipleBall();
+  balls();
 }
 
-function ball(){
-  thetaX = map(mouseX, 0, width, 0, 720);
-  let ballX = r * cos(thetaX);
-  let ballY = r * sin(thetaX);
-  ellipse(ballX, ballY, 25, 25);
-}
 
-function multipleBall(){
+function balls(){
   density = map(mouseX, 0, width, 360, 30);
   if(density < 30) density = 30;
 
-  for(let angle = 0; angle < 360; angle += density){
-    theta = angle;
+  offset = map(mouseX, 0, width, 0, 360);
+
+  for(let theta = 0+offset; theta < 360+offset; theta += 30){
     let ballX = r * cos(theta);
     let ballY = r * sin(theta);
     ellipse(ballX, ballY, 12, 12);
