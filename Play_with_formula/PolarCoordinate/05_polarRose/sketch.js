@@ -25,8 +25,8 @@ function rose(){
   beginShape();
   for(let angle = 0; angle < angleMax; angle += 1){
     theta = angle;
-    let ballX = r*cos(8*theta) * cos(theta);
-    let ballY = r*cos(8*theta) * sin(theta);
+    let ballX = r*cos(6*theta) * cos(theta);
+    let ballY = r*cos(6*theta) * sin(theta);
     vertex(ballX, ballY);
   }
   endShape();
@@ -38,7 +38,7 @@ function madnessOfPattern(){
   beginShape();
   for(let angle = 0; angle < angleMax; angle += 0.2){
     theta = angle;
-    let ballX = r*tan(9*theta) * pow(cos(theta), 2);
+    let ballX = r*tan(8*theta) * pow(cos(theta), 2);
     let ballY = r*tan(6*theta) * pow(sin(theta), 2);
     vertex(ballX, ballY);
   }
