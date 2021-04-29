@@ -1,4 +1,3 @@
-let theta;
 let r = 150;
 
 function setup(){
@@ -23,8 +22,7 @@ function draw(){
 function rose(){
   let angleMax = map(mouseX, 0, width, 0, 360);
   beginShape();
-  for(let angle = 0; angle < angleMax; angle += 1){
-    theta = angle;
+  for(let theta = 0; theta < angleMax; theta += 1){
     let ballX = r*cos(6*theta) * cos(theta);
     let ballY = r*cos(6*theta) * sin(theta);
     vertex(ballX, ballY);
@@ -36,8 +34,7 @@ function madnessOfPattern(){
   let angleMax = map(mouseX, 0, width, 0, 360);
 
   beginShape();
-  for(let angle = 0; angle < angleMax; angle += 0.2){
-    theta = angle;
+  for(let theta = 0; theta < angleMax; theta += 0.2){
     let ballX = r*tan(8*theta) * pow(cos(theta), 2);
     let ballY = r*tan(6*theta) * pow(sin(theta), 2);
     vertex(ballX, ballY);
