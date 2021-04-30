@@ -26,8 +26,8 @@ function rose(){
   beginShape();
   for(let angle = 0; angle < angleMax; angle += 1){
     theta = angle;
-    let ballX = r*cos(6*theta) * cos(theta);
-    let ballY = r*cos(6*theta) * sin(theta);
+    let ballX = r*cos(8*theta) * cos(theta);
+    let ballY = r*cos(8*theta) * sin(theta);
     vertex(ballX, ballY);
   }
   endShape();
