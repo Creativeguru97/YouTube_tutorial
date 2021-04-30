@@ -1,13 +1,12 @@
-let theta;
-let r = 10;
 
 function setup(){
   createCanvas(400, 400);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  noStroke();
-  fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
+  strokeWeight(3);
+  stroke(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
+  noFill();
 }
 
 function draw(){
@@ -19,17 +18,17 @@ function draw(){
 }
 
 function spiral(){
-  let radiusOffset = 0;
-  let angleMax = map(mouseX, 0, width, 180, 1080);
+  // let angleMax = map(mouseX, 0, width, 180, 1080);
+  let a = map(mouseX, 0, width, 0, 300);
+  let b = map(mouseY, 0, height, 0.1, 0.5);
 
-  for(let angle = 0; angle < angleMax; angle += 6){
-    theta = angle;
-    let ballX = (r+radiusOffset) * cos(theta);
-    let ballY = (r+radiusOffset) * sin(theta);
-    ellipse(ballX, ballY, 5, 5);
-
-    radiusOffset += 1;
+  beginShape();
+  for(let theta = 0; theta < 1080; theta += 6){
+    let ballX = (a+b*theta) * cos(theta);
+    let ballY = (a+b*theta) * sin(theta);
+    vertex(ballX, ballY);
   }
+  endShape();
 }
 
 function shadow(){

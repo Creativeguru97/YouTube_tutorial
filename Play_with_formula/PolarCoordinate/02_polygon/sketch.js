@@ -1,18 +1,18 @@
-let theta;
 let r = 100;
 
 function setup(){
   createCanvas(600, 400);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
+
+  stroke(32, 18, 99, 100);
+  strokeWeight(1);
+  fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
 }
 
 function draw(){
   background(191, 23, 36, 100);//color name: 錆鼠 さびねず
   translate(width/2, height/2);
-  stroke(32, 18, 99, 100);
-  strokeWeight(1);
-  fill(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
 
   shadow();
   polygon();
