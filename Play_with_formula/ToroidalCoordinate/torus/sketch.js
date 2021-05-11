@@ -80,7 +80,7 @@ function draw(){
         let z = r * sin(sigma) / (cosh(tau) - cos(sigma));
 
         // let weight = advancedGaussian(phi, 10, mouseXmapped, softnessSlider.value(), periodSlider.value());
-        let weight = advancedGaussian_2D(phi, sigma, 10, mouseXmapped, mouseYmapped, softnessSlider.value(), softnessSlider.value(), periodSlider.value());
+        let weight = advancedGaussian_2D(phi, sigma, 8, mouseXmapped, mouseYmapped, softnessSlider.value(), softnessSlider.value(), periodSlider.value());
         strokeWeight(weight);
         stroke(phi, 50, 255);
         point(x, y, z);

@@ -25,9 +25,9 @@ function polygon(){
   beginShape();
   for(let angle = 0; angle < 360; angle += num){
     theta = angle;
-    let ballX = r * cos(theta);
-    let ballY = r * sin(theta);
-    vertex(ballX, ballY);
+    let x = r * cos(theta);
+    let y = r * sin(theta);
+    vertex(x, y);
   }
   endShape(CLOSE);
 }

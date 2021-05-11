@@ -26,7 +26,6 @@ function setup(){
 function draw(){
   background(0);
   orbitControl(4, 4);//Mouse control
-  //Detail about this function: https://p5js.org/reference/#/p5/orbitControl
 
   rotateX(65);
   for(let theta = 0; theta < thetaMaxSlider.value(); theta += 0.5){

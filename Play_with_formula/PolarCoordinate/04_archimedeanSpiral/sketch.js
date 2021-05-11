@@ -19,14 +19,14 @@ function draw(){
 
 function spiral(){
   // let angleMax = map(mouseX, 0, width, 180, 1080);
-  let a = map(mouseX, 0, width, 0, 300);
-  let b = map(mouseY, 0, height, 0.1, 0.5);
+  let a = map(mouseX, 0, width, 0, 100);
+  let b = map(mouseY, 0, height, 0.1, 0.3);
 
   beginShape();
   for(let theta = 0; theta < 1080; theta += 6){
-    let ballX = (a+b*theta) * cos(theta);
-    let ballY = (a+b*theta) * sin(theta);
-    vertex(ballX, ballY);
+    let x = (a+b*theta) * cos(theta);
+    let y = (a+b*theta) * sin(theta);
+    vertex(x, y);
   }
   endShape();
 }

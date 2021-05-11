@@ -1,7 +1,5 @@
-let r = 100;
-
 function setup(){
-  createCanvas(600, 600);
+  createCanvas(900, 900);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
@@ -15,19 +13,19 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  balls();
+  balls(200);
 }
 
 
-function balls(){
+function balls(radius){
   // let density = map(mouseX, 0, width, 360, 30);
   // if(density < 30) density = 30;
 
   let offset = map(mouseX, 0, width, 0, 360);
 
   for(let theta = 0+offset; theta < 360+offset; theta += 30){
-    let ballX = r * cos(theta);
-    let ballY = r * sin(theta);
+    let ballX = radius * cos(theta);
+    let ballY = radius * sin(theta);
     ellipse(ballX, ballY, 12, 12);
   }
 }

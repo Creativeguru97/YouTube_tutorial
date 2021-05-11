@@ -78,9 +78,9 @@ function polar(x, y){
 
   for(let r = 0; r < width/2-20; r+=50){
     for(let theta = 0; theta < 360; theta+=10){
-      let x = r * cos(theta);
-      let y = r * sin(theta);
-      point(x, y);
+      let px = r * cos(theta);
+      let py = r * sin(theta);
+      point(px, py);
     }
   }
 
