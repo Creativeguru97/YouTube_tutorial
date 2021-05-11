@@ -5,7 +5,7 @@ let pointLocation;
 let locationStore;
 
 function setup(){
-  createCanvas(790, 790);
+  createCanvas(800, 800);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
@@ -22,8 +22,14 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  rose(290);
+  rose(100);
   // polarRoseExplain(80, 6);
+
+
+}
+
+function keyTyped(){
+  if(key === 's') saveCanvas('thumbnail', 'png');
 }
 
 function rose(radius){
@@ -53,15 +59,15 @@ function rose(radius){
   }
 
   drawingContext.setLineDash([0, 0]);
-  strokeWeight(5);
+  strokeWeight(3);
   stroke(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
   beginShape();
-  for(let theta = 0; theta < 360; theta += 1){
-    let x = radius * cos(6*theta) * cos(theta);
-    let y = radius * cos(5*theta) * sin(theta);
+  for(let theta = 0; theta < 360; theta += 0.2){
+    let x = (radius * cos(6*theta)+200) * pow(cos(theta), 1);
+    let y = (radius * cos(6*theta)+200) * pow(sin(theta), 1);
     vertex(x, y);
   }
-  endShape(CLOSE);
+  endShape();
 
   strokeWeight(1);
   stroke(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
