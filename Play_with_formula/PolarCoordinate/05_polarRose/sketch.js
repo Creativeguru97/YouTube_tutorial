@@ -17,10 +17,10 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  // rose();
+  rose();
   // rose2();
   // madnessOfPattern();
-  polarRoseExplain(80, 6);
+  // polarRoseExplain(80, 6);
 
 }
 
