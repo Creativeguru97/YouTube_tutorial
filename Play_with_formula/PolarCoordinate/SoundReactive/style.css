@@ -1,0 +1,32 @@
+body {
+  background-color: #000;
+}
+
+#canvas{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index:-1;
+  border: 5px #fff solid;
+	border-radius: 30px;
+}
+
+#button{
+  position: relative;
+  top: 740px;
+  left: 20px;
+  z-index:1;
+  padding: 4px 24px;
+
+  background-color: #000;
+  border: 1px #fff solid;
+	border-radius: 10px;
+  color: #fff;
+
+  transition-duration: 0.4s;
+}
+
+#button:hover{
+  background-color: #fff; /* Green */
+  color: #000;
+}

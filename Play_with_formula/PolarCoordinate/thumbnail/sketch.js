@@ -62,8 +62,8 @@ function rose(radius){
 
 
   for(let theta = 0; theta < 360; theta += 0.2){
-    let x = radius * cos(6*theta) * pow(cos(theta*5), 1);
-    let y = radius * cos(5*theta) * pow(sin(theta*5), 1);
+    let x = radius * cos(6*theta) * pow(cos(theta*1), 1);
+    let y = radius * cos(5*theta) * pow(sin(theta*1), 1);
     vertex(x, y);
   }
   endShape();

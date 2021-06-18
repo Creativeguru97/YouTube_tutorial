@@ -14,10 +14,10 @@ function draw(){
   for(let x = -width/2; x < width/2; x += 20){
     for(let y = -width/2; y < width/2; y += 20){
       // let z = -100 + gaussian_2D(x, y, 120, 0, 0, 60, 60);
-      let z = -100 + advancedGaussian_2D(x, y, 60, mouseX, mouseY-height/2, 30, 30, width/3);
+      let z = -100 + advancedGaussian_2D(x, y, 100, mouseX, mouseY-height/2, 30, 30, 240);
 
       stroke(210, 100, 100, 100);
-      strokeWeight(8);
+      strokeWeight(5);
       point(x, y, z);
     }
   }
@@ -32,7 +32,7 @@ function gaussian_2D(x, y, a, x0, y0, cx, cy){
 
 function advancedGaussian_2D(x, y, a, x0, y0, cx, cy, period){
   let weight = 0;
-  let periodDeltaX = width/2;
+  let periodDeltaX = width;
   let periodDeltaY = width/2;
 
   for(let i=0; i<width/period; i++){
@@ -44,9 +44,8 @@ function advancedGaussian_2D(x, y, a, x0, y0, cx, cy, period){
       periodDeltaX -= period;
     }
     periodDeltaY -= period;
-    periodDeltaX = width/2;
+    periodDeltaX = width;
   }
-  periodDeltaY = width/2;
 
   return weight;
 }

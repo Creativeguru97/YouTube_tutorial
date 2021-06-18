@@ -23,8 +23,8 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  // lissajous(200);
-  lissajousExplain(150, width/4, height/4);
+  lissajous(200);
+  // lissajousExplain(150, width/4, height/4);
 }
 
 function lissajous(radius){

@@ -1,6 +1,9 @@
+body{
+  background-color: #131626;
+}
 
 .valueDisplay{
-  color: #000;
+  color: #fff;
   margin-left: 20px;
   font-family: Helvetica, Arial, sans-serif;
   font-weight:100;
@@ -10,10 +13,10 @@
   z-index: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: #000;
+  background: #131626;
   height:16px;
   border-radius: 8px;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   margin-top: 5px;
   margin-left: 20px;
   margin-bottom: 20px;

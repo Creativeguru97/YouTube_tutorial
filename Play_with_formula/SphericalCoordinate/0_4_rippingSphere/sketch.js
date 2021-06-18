@@ -39,10 +39,10 @@ function setup(){
 }
 
 function draw(){
-  background(0);
+  background(230, 50, 15);
   orbitControl(4, 4);//Mouse control
 
-  strokeWeight(1);
+  strokeWeight(3);
   let thetaDensityMappedVal = map(thetaDensitySlider.value(), 10, 45, 45, 10);
   let phyDensityMappedVal = map(phyDensitySlider.value(), 10, 45, 45, 10);
 
@@ -60,7 +60,9 @@ function draw(){
       let y = radius * sin(theta) * sin(phy);
       let z = radius * cos(theta);
 
-      stroke(phy, 100, 100);
+
+      let hue = map(phy, 0, phyMaxSlider.value(), 170, 220);
+      stroke(hue, 100, 100);
       point(x, y, z);
 
       noiseY += 0.1;
