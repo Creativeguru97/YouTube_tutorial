@@ -23,9 +23,9 @@ function balls(radius){
 
   let offset = map(mouseX, 0, width, 0, 360);
 
-  for(let theta = 0+offset; theta < 360+offset; theta += 30){
-    let ballX = radius * cos(theta);
-    let ballY = radius * sin(theta);
+  for(let theta = 0; theta < 360; theta += 30){
+    let ballX = radius * cos(theta+offset);
+    let ballY = radius * sin(theta+offset);
     ellipse(ballX, ballY, 12, 12);
   }
 }

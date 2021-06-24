@@ -1,15 +1,12 @@
-let r = 160;
+let r = 200;
 let noiseScale = 0;
-let noiseX = 0;
-let noiseY = 0;
-let xAdd = 0.01;
-let yAdd = 0.01;
 
+let colNoiseOffset = 0;
 
-let thetaMaxSlider, phyMaxSlider;
-let thetaDensitySlider, phyDensitySlider;
-let thetaMaxValue, phyMaxValue;
-let thetaDensityValue, phyDensityValue;
+let thetaMaxSlider, phiMaxSlider;
+let thetaDensitySlider, phiDensitySlider;
+let thetaMaxValue, phiMaxValue;
+let thetaDensityValue, phiDensityValue;
 
 function setup(){
   createCanvas(800, 600, WEBGL);//size(600, 400);
@@ -22,20 +19,20 @@ function setup(){
   thetaMaxSlider = createSlider(0, 180, 180, 10);
   thetaMaxSlider.class("Slider");
 
-  phyMaxValue = createDiv();
-  phyMaxValue.class("valueDisplay");
-  phyMaxSlider = createSlider(0, 360, 360, 10);
-  phyMaxSlider.class("Slider");
+  phiMaxValue = createDiv();
+  phiMaxValue.class("valueDisplay");
+  phiMaxSlider = createSlider(0, 360, 360, 10);
+  phiMaxSlider.class("Slider");
 
   thetaDensityValue = createDiv();
   thetaDensityValue.class("valueDisplay");
-  thetaDensitySlider = createSlider(10, 45, 45, 1);
+  thetaDensitySlider = createSlider(7, 45, 45, 1);
   thetaDensitySlider.class("Slider");
 
-  phyDensityValue = createDiv();
-  phyDensityValue.class("valueDisplay");
-  phyDensitySlider = createSlider(10, 45, 45, 1);
-  phyDensitySlider.class("Slider");
+  phiDensityValue = createDiv();
+  phiDensityValue.class("valueDisplay");
+  phiDensitySlider = createSlider(7, 45, 45, 1);
+  phiDensitySlider.class("Slider");
 }
 
 function draw(){
@@ -43,39 +40,58 @@ function draw(){
   orbitControl(4, 4);//Mouse control
 
   strokeWeight(3);
-  let thetaDensityMappedVal = map(thetaDensitySlider.value(), 10, 45, 45, 10);
-  let phyDensityMappedVal = map(phyDensitySlider.value(), 10, 45, 45, 10);
-
-  xAdd += 0.01;
-  noiseX = xAdd;
-  yAdd += 0.01;
+  let thetaDensityMappedVal = map(thetaDensitySlider.value(), 7, 45, 45, 7);
+  let phiDensityMappedVal = map(phiDensitySlider.value(), 7, 45, 45, 7);
 
   rotateX(65);
-  for(let theta = 4; theta < thetaMaxSlider.value(); theta += thetaDensityMappedVal){
-    noiseY = 0;
-    for(let phy = 0; phy < phyMaxSlider.value(); phy += phyDensityMappedVal){
-
-      let radius = r + map(noise(noiseX, noiseY), 0, 1, -10, 10);
-      let x = radius * sin(theta) * cos(phy);
-      let y = radius * sin(theta) * sin(phy);
-      let z = radius * cos(theta);
-
-
-      let hue = map(phy, 0, phyMaxSlider.value(), 170, 220);
-      stroke(hue, 100, 100);
-      point(x, y, z);
-
-      noiseY += 0.1;
-    }
-    noiseX += 0.1;
-  }
+  rippingSphere2(thetaDensityMappedVal, phiDensityMappedVal);
 
   thetaMaxValue.html("theta max value: " + thetaMaxSlider.value());
-  phyMaxValue.html("phi max value: " + phyMaxSlider.value());
+  phiMaxValue.html("phi max value: " + phiMaxSlider.value());
 
-  let thetaDensityDisplayVal = int(map(thetaDensitySlider.value(), 10, 45, 1, 36));
-  let phyDensityDisplayVal = int(map(phyDensitySlider.value(), 10, 45, 1, 36));
+  let thetaDensityDisplayVal = int(map(thetaDensitySlider.value(), 7, 45, 1, 36));
+  let phiDensityDisplayVal = int(map(phiDensitySlider.value(), 7, 45, 1, 36));
 
   thetaDensityValue.html("theta density value: " + thetaDensityDisplayVal);
-  phyDensityValue.html("phi density value: " + phyDensityDisplayVal);
+  phiDensityValue.html("phi density value: " + phiDensityDisplayVal);
+}
+
+function rippingSphere(thetaDensity, phiDensity){
+  for(let theta = 0; theta < thetaMaxSlider.value(); theta += thetaDensity){
+    for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensity){
+      let noiseX = map(sin(theta)*cos(phi), -1, 1, 0, 3);
+      let noiseY = map(sin(theta)*sin(phi), -1, 1, 0, 3);
+      let noiseZ = map(cos(theta), -1, 1, 0, 3);
+
+      let radius = r + map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, -10, 10);
+      let x = radius * sin(theta) * cos(phi);
+      let y = radius * sin(theta) * sin(phi);
+      let z = radius * cos(theta);
+
+      let hue = map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, 150, 340);
+      stroke(hue, 100, 100);
+      point(x, y, z);
+    }
+  }
+  colNoiseOffset+=0.01;
+}
+
+function rippingSphere2(thetaDensity, phiDensity){
+  for(let theta = 0; theta < thetaMaxSlider.value(); theta += thetaDensity){
+    for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensity){
+      let noiseX = map(sin(theta)*cos(phi), -1, 1, 0, 2);
+      let noiseY = map(sin(theta)*sin(phi), -1, 1, 0, 2);
+      let noiseZ = map(cos(theta), -1, 1, 0, 3);
+
+      let offset = map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, -10, 10);
+      let x = r * sin(theta+offset) * cos(phi+offset);
+      let y = r * sin(theta+offset) * sin(phi+offset);
+      let z = r * cos(theta+offset);
+
+      let hue = map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, 150, 340);
+      stroke(hue, 100, 100);
+      point(x, y, z);
+    }
+  }
+  colNoiseOffset+=0.005;
 }

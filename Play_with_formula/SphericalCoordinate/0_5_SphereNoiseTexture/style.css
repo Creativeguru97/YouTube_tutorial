@@ -1,0 +1,82 @@
+body{
+  background-color: #131626;
+}
+
+.valueDisplay{
+  color: #fff;
+  margin-left: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:100;
+}
+
+#canvas{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index:-1;
+}
+
+.Slider{
+  z-index: 1;
+
+  background: #131626;
+  height:16px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.Slider::-moz-range-thumb {
+  /* -moz-appearance: none; /* Override default look */
+  -webkit-appearance: none;
+  appearance: none;
+  width:10px;
+  height:10px;
+  background: #fff;
+  outline: none;
+}
+
+.button{
+  position: relative;
+  top: 740px;
+  left: 20px;
+  z-index:1;
+  padding: 4px 24px;
+
+  background-color: none;
+  border: 1px #fff solid;
+	border-radius: 10px;
+  color: #fff;
+
+  transition-duration: 0.4s;
+}
+
+.button:hover{
+  background-color: #fff; /* Green */
+  color: #000;
+}
+
+.Selector{
+  position: relative;
+  top: 740px;
+  left: 20px;
+  z-index:1;
+
+  width: 160px;
+  height: 30px;
+  border-radius: 16px;
+
+  text-align: center;
+  color: #fff;
+  background: none;
+  border: 1px solid #fff;
+  font-size: 10pt;
+  transition-duration: 0.4s;
+}
+
+.Selector:hover{
+  background-color: #fff; /* Green */
+  color: #000;
+}
