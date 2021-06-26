@@ -18,12 +18,12 @@ function setup(){
   //Create slider!
   thetaMaxValue = createDiv();
   thetaMaxValue.class("valueDisplay");
-  thetaMaxSlider = createSlider(0, 180, 180, 10);
+  thetaMaxSlider = createSlider(0, 360, 360, 10);
   thetaMaxSlider.class("Slider");
 
   phyMaxValue = createDiv();
   phyMaxValue.class("valueDisplay");
-  phyMaxSlider = createSlider(0, 360, 360, 10);
+  phyMaxSlider = createSlider(0, 180, 180, 10);
   phyMaxSlider.class("Slider");
 
   thetaDensityValue = createDiv();
@@ -44,14 +44,14 @@ function draw(){
   let thetaDensityMappedVal = map(thetaDensitySlider.value(), 5, 120, 120, 5);
   let phyDensityMappedVal = map(phyDensitySlider.value(), 2, 120, 120, 2);
 
-  rotateX(65);
-  for(let theta = 0; theta < thetaMaxSlider.value(); theta += thetaDensityMappedVal){
+  rotateY(90);
+  rotateZ(65);
+  for(let phy = 0; phy < phyMaxSlider.value(); phy += phyDensityMappedVal){
     beginShape();
-    for(let phy = 0; phy < phyMaxSlider.value(); phy += phyDensityMappedVal){
-      let x = r * sin(theta) * cos(phy);
-      let y = r * sin(theta) * sin(phy);
-      let z = r * cos(theta);
-
+      for(let theta = 0; theta < thetaMaxSlider.value(); theta += thetaDensityMappedVal){
+      let x = r * cos(phy);
+      let y = r * sin(phy) * sin(theta);
+      let z = r * sin(phy) * cos(theta);
       vertex(x, y, z);
     }
     endShape(CLOSE);

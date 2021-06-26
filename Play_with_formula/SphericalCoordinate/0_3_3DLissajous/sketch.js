@@ -1,12 +1,8 @@
 let r = 160;
 
-let thetaMaxSlider;
-let densitySlider;
 let transformSlider;
 let transformSlider2;
 
-let thetaMaxValue;
-let densityValue;
 let transformValue;
 let transformValue2;
 
@@ -17,17 +13,6 @@ function setup(){
   stroke(321, 38, 80);
   strokeWeight(3);
   noFill();
-
-  //Create slider!
-  thetaMaxValue = createDiv();
-  thetaMaxValue.class("valueDisplay");
-  thetaMaxSlider = createSlider(0, 180, 180, 1);
-  thetaMaxSlider.class("Slider");
-
-  densityValue = createDiv();
-  densityValue.class("valueDisplay");
-  densitySlider = createSlider(1, 50, 25, 0.1);
-  densitySlider.class("Slider");
 
   transformValue = createDiv();
   transformValue.class("valueDisplay");
@@ -47,22 +32,39 @@ function draw(){
   orbitControl(4, 4);//Mouse control
   //Detail about this function: https://p5js.org/reference/#/p5/orbitControl
 
-  rotateX(65);
+  // rotateX(65);
   Lissajous3D();
 
-  thetaMaxValue.html("theta max value: " + thetaMaxSlider.value());
-  densityValue.html("theta density value: " + densitySlider.value());
   transformValue.html("transform value: " + transformSlider.value());
   transformValue2.html("transform value2: " + transformSlider2.value());
 }
 
 function Lissajous3D(){
+  // beginShape();
+  // for(let theta = 0; theta < 180; theta += 0.1){
+  //     let x = r * pow(sin(theta * transformSlider.value()), 1) * pow(cos(theta * 25), 1);
+  //     let y = r * pow(sin(theta * transformSlider.value()), 1) * pow(sin(theta * 25), 1);
+  //     let z = r * pow(cos(theta * transformSlider2.value()), 1);
+  //     vertex(x, y, z);
+  // }
+  // endShape();
   beginShape();
-  for(let theta = 0; theta < thetaMaxSlider.value(); theta += 0.5){
-      let x = r * pow(sin(theta * transformSlider.value()), 1) * pow(cos(theta * densitySlider.value()), 1);
-      let y = r * pow(sin(theta * transformSlider.value()), 1) * pow(sin(theta * densitySlider.value()), 1);
-      let z = r * pow(cos(theta * transformSlider.value()), 1);
-      vertex(x, y, z);
+  for(let theta = 0; theta < 180; theta += 0.2){
+    let x = r * cos(theta*transformSlider2.value());
+    let y = r * sin(theta*transformSlider.value()) * sin(theta*25);
+    let z = r * sin(theta*transformSlider.value()) * cos(theta*25);
+    vertex(x, y, z);
   }
   endShape();
+
+  // for(let phy = 0; phy < 180; phy += 10){
+  //   beginShape();
+  //     for(let theta = 0; theta < 360; theta += 5){
+  //     let x = r * cos(phy);
+  //     let y = r * sin(phy) * sin(theta);
+  //     let z = r * sin(phy) * cos(theta);
+  //     vertex(x, y, z);
+  //   }
+  //   endShape(CLOSE);
+  // }
 }

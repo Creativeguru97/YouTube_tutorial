@@ -1,4 +1,4 @@
-let r = 10;
+let r = 150;
 let offset = 0;
 let offsetStore = offset;
 
@@ -17,8 +17,8 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  // rose();
-  rose2();
+  rose();
+  // rose2();
   // madnessOfPattern();
   // polarRoseExplain(80, 6);
 
@@ -28,11 +28,11 @@ function rose(){
   let angleMax = map(mouseX, 0, width, 0, 360);
   beginShape();
   for(let theta = 0; theta < angleMax; theta += 1){
-    let x = r * cos(7*theta) * cos(theta);
-    let y = r * cos(2*theta) * sin(theta);
+    let x = r * cos(6*theta) * cos(theta);
+    let y = r * cos(5*theta) * sin(theta);
     vertex(x, y);
   }
-  endShape(CLOSE);
+  endShape();
 }
 
 function rose2(){

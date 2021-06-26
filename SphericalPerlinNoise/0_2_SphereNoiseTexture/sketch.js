@@ -2,8 +2,8 @@ let r = 200;
 let noiseScale = 0;
 let noiseOffset = 0;
 
-let cols = 400;
-let rows = 200;
+let cols = 500;
+let rows = 250;
 let verticies = [];
 
 let noiseMode;
@@ -54,7 +54,9 @@ function noiseTexture(){
 
       let hue = 0;
       if(noiseMode.value() == "mode 1"){
-        hue = map(noise(noiseX+noiseOffset, noiseY, noiseZ), 0, 1, 160, 340);
+        hue = map(noise(noiseX+noiseOffset, noiseY, noiseZ), 0, 1, 160, 340);//Earth like
+        // hue = map(noise(noiseX+noiseOffset, noiseY, noiseZ), 0, 1, 30, 50);//venus like
+        // hue = map(noise(noiseX+noiseOffset, noiseY, noiseZ), 0, 1, 20, 35);//Mars like
       }else if (noiseMode.value() == "mode 2") {
         let n = map(noise(noiseX+noiseOffset, noiseY, noiseZ), 0, 1, 0, 24);
         hue = map((n - int(n)), 0, 1, 170, 260);
@@ -66,7 +68,12 @@ function noiseTexture(){
 
   for(let theta = 0; theta < verticies.length; theta++){
     for(let phi = 0; phi < verticies[theta].length; phi++){
-      fill(verticies[theta][phi][1], 100, 100);
+
+      if(noiseMode.value() == "mode 1"){
+        fill(verticies[theta][phi][1], 100, 100);
+      }else if (noiseMode.value() == "mode 2") {
+        fill(verticies[theta][phi][1], 100, 100);
+      }
 
       if(theta < verticies.length-1 && phi < verticies[theta].length-1){
         beginShape();

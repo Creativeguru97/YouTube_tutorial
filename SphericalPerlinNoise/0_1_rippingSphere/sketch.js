@@ -44,7 +44,7 @@ function draw(){
   let phiDensityMappedVal = map(phiDensitySlider.value(), 7, 45, 45, 7);
 
   rotateX(65);
-  rippingSphere2(thetaDensityMappedVal, phiDensityMappedVal);
+  rippingSphere(thetaDensityMappedVal, phiDensityMappedVal);
 
   thetaMaxValue.html("theta max value: " + thetaMaxSlider.value());
   phiMaxValue.html("phi max value: " + phiMaxSlider.value());
@@ -63,7 +63,7 @@ function rippingSphere(thetaDensity, phiDensity){
       let noiseY = map(sin(theta)*sin(phi), -1, 1, 0, 3);
       let noiseZ = map(cos(theta), -1, 1, 0, 3);
 
-      let radius = r + map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, -10, 10);
+      let radius = r + map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, -20, 20);
       let x = radius * sin(theta) * cos(phi);
       let y = radius * sin(theta) * sin(phi);
       let z = radius * cos(theta);
