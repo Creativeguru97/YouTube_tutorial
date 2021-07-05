@@ -15,6 +15,7 @@ body{
   -moz-appearance: none;
   background: #131626;
   height:16px;
+  width:250px;
   border-radius: 8px;
   border: 1px solid #fff;
   margin-top: 5px;
@@ -30,9 +31,4 @@ body{
   height:10px;
   background: #fff;
   outline: none;
-}
-
-#transformSlider{
-
-  width:250px;
 }

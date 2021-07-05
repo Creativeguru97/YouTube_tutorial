@@ -57,11 +57,11 @@ function draw(){
 }
 
 function rippingSphere(thetaDensity, phiDensity){
-  for(let theta = 0; theta < thetaMaxSlider.value(); theta += thetaDensity){
-    for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensity){
-      let noiseX = map(sin(theta)*cos(phi), -1, 1, 0, 3);
-      let noiseY = map(sin(theta)*sin(phi), -1, 1, 0, 3);
-      let noiseZ = map(cos(theta), -1, 1, 0, 3);
+  for(let theta = 0; theta < 180; theta += 5){
+    for(let phi = 0; phi < 360; phi += 5){
+      let noiseX = map(sin(theta)*cos(phi), -1, 1, 0, 2);
+      let noiseY = map(sin(theta)*sin(phi), -1, 1, 0, 2);
+      let noiseZ = map(cos(theta), -1, 1, 0, 2);
 
       let radius = r + map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, -20, 20);
       let x = radius * sin(theta) * cos(phi);
@@ -81,7 +81,7 @@ function rippingSphere2(thetaDensity, phiDensity){
     for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensity){
       let noiseX = map(sin(theta)*cos(phi), -1, 1, 0, 2);
       let noiseY = map(sin(theta)*sin(phi), -1, 1, 0, 2);
-      let noiseZ = map(cos(theta), -1, 1, 0, 3);
+      let noiseZ = map(cos(theta), -1, 1, 0, 2);
 
       let offset = map(noise(noiseX, noiseY, noiseZ+colNoiseOffset), 0, 1, -10, 10);
       let x = r * sin(theta+offset) * cos(phi+offset);
