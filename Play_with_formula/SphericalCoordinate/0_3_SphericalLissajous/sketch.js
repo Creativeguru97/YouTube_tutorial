@@ -38,6 +38,8 @@ function draw(){
 
   freqValue.html("frequency value: " + freqSlider.value());
   freqValue2.html("frequency value2: " + freqSlider2.value());
+
+
 }
 
 function SphericalLissajous(){

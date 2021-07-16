@@ -38,7 +38,7 @@ function lissajous(radius){
     let y = radius * sin(theta*freqY);
     vertex(x, y);
   }
-  endShape(CLOSE);
+  endShape();
 }
 
 function lissajousExplain(radius, translateX, translateY){

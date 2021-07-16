@@ -1,9 +1,9 @@
-let r = 150;
+let r = 200;
 let offset = 0;
 let offsetStore = offset;
 
 function setup(){
-  createCanvas(960, 540);
+  createCanvas(800, 800);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
@@ -17,19 +17,20 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  // rose();
-  rose2();
+  rose();
+  // rose2();
   // madnessOfPattern();
   // polarRoseExplain(80, 6);
 
 }
 
 function rose(){
-  // let angleMax = map(mouseX, 0, width, 0, 360);
+  let d = map(mouseX, 0, width, 0, 10);
+  let n = map(mouseY, 0, height, 0, 10);
   beginShape();
   for(let theta = 0; theta < 1800; theta += 1){
-    let x = r * cos(5/4*theta) * cos(theta);
-    let y = r * cos(5/4*theta) * sin(theta);
+    let x = r * cos(n/d*theta) * cos(theta);
+    let y = r * cos(n/d*theta) * sin(theta);
     vertex(x, y);
   }
   endShape();

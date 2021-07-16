@@ -43,7 +43,6 @@ function draw(){
       let x = r*(1+bumpSlider.value()*sin(thetaSlider.value()*theta)*sin(phySlider.value()*phy)) * sin(1*theta) * cos(phy);
       let y = r*(1+bumpSlider.value()*sin(thetaSlider.value()*theta)*sin(phySlider.value()*phy)) * sin(1*theta) * sin(phy);
       let z = r*(1+bumpSlider.value()*sin(thetaSlider.value()*theta)*sin(phySlider.value()*phy)) * cos(1*theta);
-
       vertex(x, y, z);
     }
     endShape();

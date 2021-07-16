@@ -45,7 +45,7 @@ function draw(){
       let y = r * sin(phi) * sin(theta);
       let z = r * sin(phi) * cos(theta);
       vertex(x, y, z);
-    }å
+    }
     endShape(CLOSE);
   }
 

@@ -2,8 +2,8 @@ let r = 200;
 let noiseScale = 0;
 let noiseOffset = 0;
 
-let cols = 500;
-let rows = 250;
+let cols = 200;
+let rows = 100;
 let verticies = [];
 
 let noiseMode;
