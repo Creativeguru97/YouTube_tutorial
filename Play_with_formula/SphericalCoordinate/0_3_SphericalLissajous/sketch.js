@@ -36,8 +36,8 @@ function draw(){
   SphericalLissajous();
   // SphericalLissajous_Animated();
 
-  freqValue.html("frequency value: " + freqSlider.value());
-  freqValue2.html("frequency value2: " + freqSlider2.value());
+  freqValue.html("frequency: " + freqSlider.value());
+  freqValue2.html("frequency2: " + freqSlider2.value());
 
 
 }
