@@ -65,6 +65,6 @@ function keyTyped(){
 function shadow(){
   drawingContext.shadowOffsetX = 1;
   drawingContext.shadowOffsetY = -1;
-  drawingContext.shadowBlur = 18;
+  drawingContext.shadowBlur = 14;
   drawingContext.shadowColor = 'rgba(255, 255, 255)';
 }

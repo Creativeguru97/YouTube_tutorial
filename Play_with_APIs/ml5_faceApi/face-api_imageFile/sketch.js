@@ -5,9 +5,9 @@ let img;
 let canvas;
 
 function preload(){
-    // img = loadImage('data/image1.png');
+    img = loadImage('data/image1.png');
     // img = loadImage('data/image2.jpg');
-    img = loadImage('data/image3.jpg');
+    // img = loadImage('data/image3.jpg');
     // img = loadImage('data/image4.jpg');
 }
 
@@ -23,6 +23,7 @@ function setup() {
 
   //Initialize the model: モデルの初期化
   faceapi = ml5.faceApi(img, faceOptions, faceReady);
+  stroke(255);
 }
 
 function faceReady() {
@@ -43,6 +44,8 @@ function gotFaces(error, result) {
 
   image(img, 0,0, width, height);
 
+  shadow1();
+  shadow2();
   drawBoxs(detections);//Draw detection box: 顔の周りの四角の描画
   drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
   drawExpressions(detections, 650, 150, 32);//Draw face expression: 表情の描画
@@ -56,7 +59,6 @@ function drawBoxs(detections){
       sWeight = 1;
     }else{}
 
-    stroke(215, 0, 58);
     strokeWeight(sWeight);
     noFill();
     rect(_x, _y, _width, _height);
@@ -73,7 +75,6 @@ function drawLandmarks(detections){
     }else{}
 
     for (let i = 0; i < points.length; i++) {
-      stroke(215, 0, 58);
       strokeWeight(sWeight);
       point(points[i]._x, points[i]._y);
     }
@@ -99,7 +100,6 @@ function drawExpressions(detections){
       y = 20;
       textYSpace = tSize * 1.1;
 
-      stroke(215, 0, 58);
       strokeWeight(1);
       line(x, y+textYSpace*6+5, _x+_width/3, _y-5);
     }
@@ -107,7 +107,7 @@ function drawExpressions(detections){
     textFont('Helvetica Neue');
     textSize(tSize);
     noStroke();
-    fill(215, 0, 58);
+    fill(255);
 
     // rect(x, y, tSize * 8.5, 10);
 
@@ -125,4 +125,18 @@ function keyTyped(){
   if (key === 's') {
     saveFrames('detection', 'png', 1, 25);
   }
+}
+
+function shadow1(){
+  drawingContext.shadowOffsetX = 1;
+  drawingContext.shadowOffsetY = -1;
+  drawingContext.shadowBlur = 6;
+  drawingContext.shadowColor = 'rgba(255, 255, 255, 100)';
+}
+
+function shadow2(){
+  drawingContext.shadowOffsetX = 1;
+  drawingContext.shadowOffsetY = -1;
+  drawingContext.shadowBlur = 18;
+  drawingContext.shadowColor = 'rgba(255, 255, 255, 100)';
 }

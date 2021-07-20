@@ -1,34 +1,43 @@
 let r = 100;
+let r0 = 130, r1 = 80;
 
-let tauMaxSlider, sigmaMaxSlider, phiMaxSlider;
-let tauDensitySlider, sigmaDensitySlider, phiDensitySlider;
-let tauMaxValue, sigmaMaxValue, phiMaxValue;
-let tauDensityValue, sigmaDensityValue, phiDensityValue;
+let radius0_Slider, radius1_Slider;
+let radius0Value, radius1Value;
+
+let freqSlider, freqValue;
+let freqSlider2, freqValue2;
+
+let offset = 0;
 
 function setup(){
   createCanvas(700, 500, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  strokeWeight(3);
+  strokeWeight(5);
   stroke(321, 38, 80);
   noFill();
 
   //Create slider!
-  tauMaxValue = createDiv();
-  tauMaxValue.class("valueDisplay");
-  tauMaxSlider = createSlider(0.5, 4, 1, 0.1);
-  tauMaxSlider.class("Slider");
+  radius0Value = createDiv();
+  radius0Value.class("valueDisplay");
+  radius0_Slider = createSlider(0, 200, 130, 1);
+  radius0_Slider.class("Slider");
 
-  sigmaMaxValue = createDiv();
-  sigmaMaxValue.class("valueDisplay");
-  sigmaMaxSlider = createSlider(0, 360, 360, 10);
-  sigmaMaxSlider.class("Slider");
+  radius1Value = createDiv();
+  radius1Value.class("valueDisplay");
+  radius1_Slider = createSlider(0, 200, 80, 1);
+  radius1_Slider.class("Slider");
 
-  phiMaxValue = createDiv();
-  phiMaxValue.class("valueDisplay");
-  phiMaxSlider = createSlider(0, 360, 360, 10);
-  phiMaxSlider.class("Slider");
+  freqValue = createDiv();
+  freqValue.class("valueDisplay");
+  freqSlider = createSlider(0, 10, 6, 0.01);
+  freqSlider.class("Slider");
+
+  freqValue2 = createDiv();
+  freqValue2.class("valueDisplay");
+  freqSlider2 = createSlider(0, 10, 6, 0.01);
+  freqSlider2.class("Slider");
 }
 
 function draw(){
@@ -37,22 +46,45 @@ function draw(){
 
   rotateX(65);
 
-  for(let tau = tauMaxSlider.value(); tau < tauMaxSlider.value()+1; tau += 1){
-    for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += 5){
+  // bumpyTorus();
+  bumpyTorus2();
+
+  freqValue.html("frequency: " + freqSlider.value());
+  freqValue2.html("frequency2: " + freqSlider2.value());
+  radius0Value.html("radius0: " + radius0_Slider.value());
+  radius1Value.html("radius1: " + radius1_Slider.value());
+
+  offset -= 0.5;
+}
+
+function bumpyTorus(){
+  for(let tau = 1; tau < 2; tau += 1){
+    for(let sigma = 0; sigma < 360; sigma += 5){
       beginShape(POINTS);
-      for(let phi = 0; phi < phiMaxSlider.value(); phi += 5){
-        let x = r*(1+0.2*sin(phi*6)*sin(sigma*6)) * sinh(tau) * cos(phi) / (cosh(tau) - cos(sigma));
-        let y = r*(1+0.2*sin(phi*6)*sin(sigma*6)) * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
-        let z = r*(1+0.2*sin(phi*6)*sin(sigma*6)) * sin(sigma) / (cosh(tau) - cos(sigma));
+      for(let phi = 0; phi < 360; phi += 5){
+        let bump = (1+0.1*sin(phi*freqSlider.value())*sin(sigma*freqSlider2.value()));
+        let x = r*bump * sinh(tau) * cos(phi) / (cosh(tau) - cos(sigma));
+        let y = r*bump * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
+        let z = r*bump * sin(sigma) / (cosh(tau) - cos(sigma));
         vertex(x, y, z);
       }
       endShape();
     }
   }
+}
 
-  tauMaxValue.html("tau max value: " + tauMaxSlider.value());
-  sigmaMaxValue.html("sigma max value: " + sigmaMaxSlider.value());
-  phiMaxValue.html("phi max value: " + phiMaxSlider.value());
+function bumpyTorus2(){
+  for(let sigma = 0; sigma < 360; sigma += 5){
+    beginShape(POINTS);
+    for(let phi = 0; phi < 360; phi += 5){
+      let bump = (1+0.1*sin(phi*freqSlider.value())*sin(sigma*freqSlider2.value()));
+      let x = cos(phi+offset/5) * (radius0_Slider.value()*bump + radius1_Slider.value()*bump * cos(sigma+offset));
+      let y = sin(phi+offset/5) * (radius0_Slider.value()*bump + radius1_Slider.value()*bump * cos(sigma+offset));
+      let z = radius1_Slider.value()*bump * sin(sigma+offset);
+      vertex(x, y, z);
+    }
+    endShape();
+  }
 }
 
 function sinh(x){
