@@ -1,47 +1,31 @@
 body{
-  background-color: #131626;
+  background-color: #fff1cf;
 }
 
 .valueDisplay{
-  color: #fff;
+  color: #bf794e;
   margin-left: 20px;
   font-family: Helvetica, Arial, sans-serif;
   font-weight:100;
 }
 
 .Slider{
-  z-index: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  background: #131626;
-  height:12px;
-  border-radius: 6px;
-  border: 1px solid #fff;
-  opacity: 0.5;
-
+  background: none;
+  height:16px;
+  width:250px;
+  border-radius: 8px;
+  border: 3px solid #bf794e;
   margin-top: 5px;
   margin-left: 20px;
   margin-bottom: 20px;
 }
-.slider:hover {
-  opacity: 1;
-}
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 8px; /* Set a specific slider handle width */
-  height: 8px; /* Slider handle height */
-  background: #fff; /* Green background */
-  border-radius: 4px;
-}
-
-.Slider::-moz-range-thumb {
-  /* -moz-appearance: none; /* Override default look */
+.Slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width:8px;
-  height:8px;
-  background: #fff;
+  width:12px;
+  height:12px;
+  border-radius: 6px;
+  background: #bf794e;
   outline: none;
 }

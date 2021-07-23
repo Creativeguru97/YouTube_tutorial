@@ -17,8 +17,8 @@ function setup(){
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  stroke(321, 38, 80);
-  strokeWeight(2);
+  stroke(23, 59, 75);//color name: rakuda-iro
+  strokeWeight(5);
   noFill();
 
   //Create slider!
@@ -34,17 +34,17 @@ function setup(){
 
   freqValue = createDiv();
   freqValue.class("valueDisplay");
-  freqSlider = createSlider(1, 30, 29, 0.1);
+  freqSlider = createSlider(1, 30, 14, 0.1);
   freqSlider.class("Slider");
 
   freqValue2 = createDiv();
   freqValue2.class("valueDisplay");
-  freqSlider2 = createSlider(1, 30, 30, 0.1);
+  freqSlider2 = createSlider(1, 30, 15, 0.1);
   freqSlider2.class("Slider");
 }
 
 function draw(){
-  background(230, 50, 15, 100);
+  background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
 
   rotateX(65);

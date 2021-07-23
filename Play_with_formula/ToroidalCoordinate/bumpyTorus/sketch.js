@@ -14,8 +14,8 @@ function setup(){
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  strokeWeight(5);
-  stroke(321, 38, 80);
+  strokeWeight(3);
+  stroke(23, 59, 75);//color name: rakuda-iro
   noFill();
 
   //Create slider!
@@ -41,7 +41,7 @@ function setup(){
 }
 
 function draw(){
-  background(230, 50, 15, 100);
+  background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
 
   rotateX(65);
@@ -74,16 +74,16 @@ function bumpyTorus(){
 }
 
 function bumpyTorus2(){
-  for(let sigma = 0; sigma < 360; sigma += 5){
-    beginShape(POINTS);
-    for(let phi = 0; phi < 360; phi += 5){
+  for(let phi = 0; phi < 360; phi += 5){
+    beginShape();
+    for(let sigma = 0; sigma < 360; sigma += 5){
       let bump = (1+0.1*sin(phi*freqSlider.value())*sin(sigma*freqSlider2.value()));
       let x = cos(phi+offset/5) * (radius0_Slider.value()*bump + radius1_Slider.value()*bump * cos(sigma+offset));
       let y = sin(phi+offset/5) * (radius0_Slider.value()*bump + radius1_Slider.value()*bump * cos(sigma+offset));
       let z = radius1_Slider.value()*bump * sin(sigma+offset);
       vertex(x, y, z);
     }
-    endShape();
+    endShape(CLOSE);
   }
 }
 

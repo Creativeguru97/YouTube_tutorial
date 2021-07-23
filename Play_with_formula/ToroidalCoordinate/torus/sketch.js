@@ -14,10 +14,11 @@ let offset = 0;
 function setup(){
   createCanvas(700, 500, WEBGL);
   angleMode(DEGREES);
-  colorMode(HSB, 360, 100, 100, 100);
+  colorMode(HSB, 360, 100, 100);
 
-  stroke(255);
-  strokeWeight(3);
+  stroke(23, 59, 75);//color name: rakuda-iro
+  strokeWeight(4);
+  noFill();
 
   //Create sliders!
   radius0Value = createDiv();
@@ -52,16 +53,12 @@ function setup(){
 }
 
 function draw(){
-  background(230, 50, 15, 100);
+  background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
-
-  let sigmaDensity = map(sigmaDensitySlider.value(), 10, 45, 45, 10);
-  let phiDensity = map(phiDensitySlider.value(), 10, 45, 45, 10);
-
   rotateX(65);
 
   // torusType1(sigmaDensity, phiDensity);
-  torusType2(sigmaDensity, phiDensity);
+  torusType2(sigmaDensitySlider.value(), phiDensitySlider.value());
 
   radius0Value.html("radius0: " + radius0_Slider.value());
   radius1Value.html("radius1: " + radius1_Slider.value());
@@ -77,30 +74,30 @@ function draw(){
 }
 
 function torusType1(sigmaDensity, phiDensity){//This is another type of the equation!
+  beginShape(POINTS);
   for(let tau = 1; tau < 2; tau += 1){
-    for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += sigmaDensity){
-      for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensity){
+    for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += 360/sigmaDensity){
+      for(let phi = 0; phi < phiMaxSlider.value(); phi += 360/phiDensity){
         let x = r * sinh(tau) * cos(phi+offset) / (cosh(tau) - cos(sigma+offset));
         let y = r * sinh(tau) * sin(phi+offset) / (cosh(tau) - cos(sigma+offset));
         let z = r * sin(sigma+offset) / (cosh(tau) - cos(sigma+offset));
-
-        stroke(phi, 50, 255);
-        point(x, y, z);
+        vertex(x, y, z);
       }
     }
   }
+  endShape();
 }
 
 function torusType2(sigmaDensity, phiDensity){
-  for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += sigmaDensity){
-    for(let phi = 0; phi < phiMaxSlider.value(); phi += phiDensity){
+  for(let phi = 0; phi < sigmaMaxSlider.value(); phi += 360/sigmaDensity){
+    beginShape();
+    for(let sigma = 0; sigma < phiMaxSlider.value(); sigma += 360/phiDensity){
       let x = cos(phi+offset) * (radius0_Slider.value()+radius1_Slider.value() * cos(sigma+offset));
       let y = sin(phi+offset) * (radius0_Slider.value()+radius1_Slider.value() * cos(sigma+offset));
       let z = radius1_Slider.value() * sin(sigma+offset);
-
-      stroke(phi, 50, 255);
-      point(x, y, z);
+      vertex(x, y, z);
     }
+    endShape(CLOSE);
   }
 }
 

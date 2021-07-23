@@ -9,10 +9,10 @@ let radius0Value, radius1Value;
 function setup(){
   createCanvas(700, 500, WEBGL);
   angleMode(DEGREES);
-  colorMode(HSB, 360, 100, 100, 100);
+  colorMode(HSB, 360, 100, 100);
 
-  stroke(321, 38, 80);
-  strokeWeight(3);
+  stroke(23, 59, 75);//color name: rakuda-iro
+  strokeWeight(5);
   noFill();
 
   //Create slider!
@@ -33,7 +33,7 @@ function setup(){
 }
 
 function draw(){
-  background(230, 50, 15, 100);
+  background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
   rotateX(65);
 
