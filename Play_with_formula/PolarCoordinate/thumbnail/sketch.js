@@ -1,6 +1,5 @@
 let r = 100;
 
-
 let pointLocation;
 let locationStore;
 
@@ -18,7 +17,7 @@ function setup(){
 }
 
 function draw(){
-  background(191, 23, 36, 100);//color name: 錆鼠 さびねず
+  background(0);//color name: 錆鼠 さびねず
   translate(width/2, height/2);
 
   shadow();
@@ -56,8 +55,8 @@ function rose(radius){
   }
 
   drawingContext.setLineDash([0, 0]);
-  strokeWeight(3);
-  stroke(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
+  strokeWeight(7);
+  stroke(255);
   beginShape();
 
 
@@ -68,13 +67,12 @@ function rose(radius){
   }
   endShape();
 
-  strokeWeight(1);
-  stroke(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
+  strokeWeight(2);
 }
 
 function shadow(){
   drawingContext.shadowOffsetX = 5;
   drawingContext.shadowOffsetY = -5;
   drawingContext.shadowBlur = 8;
-  drawingContext.shadowColor = 'rgba(39, 49, 51, 100)';
+  drawingContext.shadowColor = 'rgba(255, 255, 255, 100)';
 }
