@@ -1,6 +1,3 @@
-let r = 100;
-let r0 = 130, r1 = 80;
-
 let sigmaMaxSlider, phiMaxSlider;
 let sigmaDensitySlider, phiDensitySlider;
 let sigmaMaxValue, phiMaxValue;
@@ -55,10 +52,9 @@ function setup(){
 function draw(){
   background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
-  rotateX(65);
+  rotateX(-25);
 
-  // torusType1(sigmaDensity, phiDensity);
-  torusType2(sigmaDensitySlider.value(), phiDensitySlider.value());
+  torusType1();
 
   radius0Value.html("radius0: " + radius0_Slider.value());
   radius1Value.html("radius1: " + radius1_Slider.value());
@@ -73,32 +69,32 @@ function draw(){
   offset -= 0.1;
 }
 
-function torusType1(sigmaDensity, phiDensity){//This is another type of the equation!
+function torusType1(){
+  for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += 360/sigmaDensitySlider.value()){
+    beginShape();
+    for(let phi = 0; phi < phiMaxSlider.value(); phi += 360/phiDensitySlider.value()){
+      let x = (radius0_Slider.value()+radius1_Slider.value() * cos(phi+offset)) * sin(sigma+offset);
+      let y = radius1_Slider.value() * sin(phi+offset);
+      let z = (radius0_Slider.value()+radius1_Slider.value() * cos(phi+offset)) * cos(sigma+offset);
+      vertex(x, y, z);
+    }
+    endShape(CLOSE);
+  }
+}
+
+function torusType2(sigmaDensity, phiDensity){//This is another type of the torus parametric equation!
   beginShape(POINTS);
   for(let tau = 1; tau < 2; tau += 1){
     for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += 360/sigmaDensity){
       for(let phi = 0; phi < phiMaxSlider.value(); phi += 360/phiDensity){
-        let x = r * sinh(tau) * cos(phi+offset) / (cosh(tau) - cos(sigma+offset));
-        let y = r * sinh(tau) * sin(phi+offset) / (cosh(tau) - cos(sigma+offset));
-        let z = r * sin(sigma+offset) / (cosh(tau) - cos(sigma+offset));
+        let x = 100 * sinh(tau) * cos(phi+offset) / (cosh(tau) - cos(sigma+offset));
+        let y = 100 * sinh(tau) * sin(phi+offset) / (cosh(tau) - cos(sigma+offset));
+        let z = 100 * sin(sigma+offset) / (cosh(tau) - cos(sigma+offset));
         vertex(x, y, z);
       }
     }
   }
   endShape();
-}
-
-function torusType2(sigmaDensity, phiDensity){
-  for(let phi = 0; phi < sigmaMaxSlider.value(); phi += 360/sigmaDensity){
-    beginShape();
-    for(let sigma = 0; sigma < phiMaxSlider.value(); sigma += 360/phiDensity){
-      let x = cos(phi+offset) * (radius0_Slider.value()+radius1_Slider.value() * cos(sigma+offset));
-      let y = sin(phi+offset) * (radius0_Slider.value()+radius1_Slider.value() * cos(sigma+offset));
-      let z = radius1_Slider.value() * sin(sigma+offset);
-      vertex(x, y, z);
-    }
-    endShape(CLOSE);
-  }
 }
 
 function sinh(x){

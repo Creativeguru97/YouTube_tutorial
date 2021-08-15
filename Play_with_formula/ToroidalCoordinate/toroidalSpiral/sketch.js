@@ -1,6 +1,3 @@
-let r = 100;
-let r0 = 130, r1 = 80;
-
 let freqSlider, freqValue;
 
 let radius0_Slider, radius1_Slider;
@@ -35,38 +32,37 @@ function setup(){
 function draw(){
   background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
-  rotateX(65);
+  rotateX(-25);
 
-  // toroidalSpiral();
-  toroidalSpiral2();
+  toroidalSpiral();
 
   radius0Value.html("radius0: " + radius0_Slider.value());
   radius1Value.html("radius1: " + radius1_Slider.value());
   freqValue.html("frequency: " + freqSlider.value());
 }
 
-function toroidalSpiral(){//This is another type of equation of toroidal coordinates!
+function toroidalSpiral(){
+  beginShape();
+  for(let phi = 0; phi < 360; phi += 0.2){
+    let x = (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider.value())) * sin(phi);
+    let y = radius1_Slider.value() * sin(phi*freqSlider.value());
+    let z = (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider.value())) * cos(phi);
+    vertex(x, y, z);
+  }
+  endShape();
+}
+
+function toroidalSpiral2(){//This is another type of equation of torus parametric coordinates!
   for(let tau = tauMaxSlider.value(); tau < tauMaxSlider.value()+1; tau += 1){
     beginShape();
     for(let phi = 0; phi < 360; phi += 0.2){
-      let x = r * sinh(tau) * cos(phi) / (cosh(tau) - cos(phi*freqSlider.value()));
-      let y = r * sinh(tau) * sin(phi) / (cosh(tau) - cos(phi*freqSlider.value()));
-      let z = r * sin(phi*freqSlider.value()) / (cosh(tau) - cos(phi*freqSlider.value()));
+      let x = 100 * sinh(tau) * cos(phi) / (cosh(tau) - cos(phi*freqSlider.value()));
+      let y = 100 * sinh(tau) * sin(phi) / (cosh(tau) - cos(phi*freqSlider.value()));
+      let z = 100 * sin(phi*freqSlider.value()) / (cosh(tau) - cos(phi*freqSlider.value()));
       vertex(x, y, z);
     }
     endShape();
   }
-}
-
-function toroidalSpiral2(){
-  beginShape();
-  for(let phi = 0; phi < 360; phi += 0.2){
-    let x = cos(phi) * (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider.value()));
-    let y = sin(phi) * (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider.value()));
-    let z = radius1_Slider.value() * sin(phi*freqSlider.value());
-    vertex(x, y, z);
-  }
-  endShape();
 }
 
 function sinh(x){

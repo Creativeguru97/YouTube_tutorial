@@ -1,6 +1,3 @@
-let r = 100;
-let r0 = 130, r1 = 80;
-
 let tauMaxSlider, tauMaxValue;
 let tauDensitySlider, tauDensityValue;
 
@@ -9,8 +6,6 @@ let freqSlider2, freqValue2;
 
 let radius0_Slider, radius1_Slider;
 let radius0Value, radius1Value;
-
-let offset = 0;
 
 function setup(){
   createCanvas(700, 500, WEBGL);
@@ -47,41 +42,38 @@ function draw(){
   background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
 
-  rotateX(65);
+  rotateX(-25);
 
-  // torusLissajous1();
-  torusLissajous2();
+  torusLissajous1();
 
   radius0Value.html("radius0: " + radius0_Slider.value());
   radius1Value.html("radius1: " + radius1_Slider.value());
   freqValue.html("frequency: " + freqSlider.value());
   freqValue2.html("frequency2: " + freqSlider2.value());
-
-  offset+=0.4;
 }
 
 function torusLissajous1(){
+  beginShape();
+  for(let phi = 0; phi < 360; phi += 0.2){
+    let x = (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider2.value())) * sin(phi*freqSlider.value());
+    let y = radius1_Slider.value() * sin(phi*freqSlider2.value());
+    let z = (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider2.value())) * cos(phi*freqSlider.value());
+    vertex(x, y, z);
+  }
+  endShape();
+}
+
+function torusLissajous2(){//This is another type of equation of torus parametric coordinates!
   for(let tau = 1; tau < 2; tau += 1){
     beginShape();
     for(let phi = 0; phi < 360; phi += 0.2){
-      let x = r * sinh(tau) * cos(phi*freqSlider.value()) / (cosh(tau) - cos((phi*freqSlider2.value())+offset));
-      let y = r * sinh(tau) * sin(phi*freqSlider.value()) / (cosh(tau) - cos((phi*freqSlider2.value())+offset));
-      let z = r * sin((phi*freqSlider2.value())+offset) / (cosh(tau) - cos((phi*freqSlider2.value())+offset));
+      let x = 100 * sinh(tau) * cos(phi*freqSlider.value()) / (cosh(tau) - cos((phi*freqSlider2.value())+offset));
+      let y = 100 * sinh(tau) * sin(phi*freqSlider.value()) / (cosh(tau) - cos((phi*freqSlider2.value())+offset));
+      let z = 100 * sin((phi*freqSlider2.value())+offset) / (cosh(tau) - cos((phi*freqSlider2.value())+offset));
       vertex(x, y, z);
     }
     endShape();
   }
-}
-
-function torusLissajous2(){
-  beginShape();
-  for(let phi = 0; phi < 360; phi += 0.2){
-    let x = cos(phi*freqSlider.value()) * (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider2.value()));
-    let y = sin(phi*freqSlider.value()) * (radius0_Slider.value()+radius1_Slider.value() * cos(phi*freqSlider2.value()));
-    let z = radius1_Slider.value() * sin(phi*freqSlider2.value());
-    vertex(x, y, z);
-  }
-  endShape();
 }
 
 function sinh(x){

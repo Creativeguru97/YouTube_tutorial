@@ -1,6 +1,3 @@
-let r = 100;
-let r0 = 130, r1 = 80;
-
 let radius0_Slider, radius1_Slider;
 let radius0Value, radius1Value;
 
@@ -14,7 +11,7 @@ function setup(){
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  strokeWeight(3);
+  strokeWeight(6);
   stroke(23, 59, 75);//color name: rakuda-iro
   noFill();
 
@@ -44,9 +41,8 @@ function draw(){
   background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
 
-  rotateX(65);
+  rotateX(-25);
 
-  // bumpyTorus();
   bumpyTorus2();
 
   freqValue.html("frequency: " + freqSlider.value());
@@ -54,36 +50,36 @@ function draw(){
   radius0Value.html("radius0: " + radius0_Slider.value());
   radius1Value.html("radius1: " + radius1_Slider.value());
 
-  offset -= 0.5;
+  offset += 0.5;
 }
 
-function bumpyTorus(){
+function bumpyTorus1(){
+  for(let sigma = 0; sigma < 360; sigma += 5){
+    beginShape();
+    for(let phi = 0; phi < 360; phi += 5){
+      let bump = (1+0.2*sin(phi*freqSlider.value())*sin(sigma*freqSlider2.value()));
+      let x = (radius0_Slider.value() + radius1_Slider.value()*bump * cos(phi+offset)) * sin(sigma+offset/5);
+      let y = radius1_Slider.value()*bump * sin(phi+offset);
+      let z = (radius0_Slider.value() + radius1_Slider.value()*bump * cos(phi+offset)) * cos(sigma+offset/5);
+      vertex(x, y, z);
+    }
+    endShape(CLOSE);
+  }
+}
+
+function bumpyTorus2(){//This is another type of equation of torus parametric coordinates!
   for(let tau = 1; tau < 2; tau += 1){
     for(let sigma = 0; sigma < 360; sigma += 5){
       beginShape(POINTS);
       for(let phi = 0; phi < 360; phi += 5){
         let bump = (1+0.1*sin(phi*freqSlider.value())*sin(sigma*freqSlider2.value()));
-        let x = r*bump * sinh(tau) * cos(phi) / (cosh(tau) - cos(sigma));
-        let y = r*bump * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
-        let z = r*bump * sin(sigma) / (cosh(tau) - cos(sigma));
+        let x = 100*bump * sinh(tau) * cos(phi) / (cosh(tau) - cos(sigma));
+        let y = 100*bump * sinh(tau) * sin(phi) / (cosh(tau) - cos(sigma));
+        let z = 100*bump * sin(sigma) / (cosh(tau) - cos(sigma));
         vertex(x, y, z);
       }
       endShape();
     }
-  }
-}
-
-function bumpyTorus2(){
-  for(let phi = 0; phi < 360; phi += 5){
-    beginShape();
-    for(let sigma = 0; sigma < 360; sigma += 5){
-      let bump = (1+0.1*sin(phi*freqSlider.value())*sin(sigma*freqSlider2.value()));
-      let x = cos(phi+offset/5) * (radius0_Slider.value()*bump + radius1_Slider.value()*bump * cos(sigma+offset));
-      let y = sin(phi+offset/5) * (radius0_Slider.value()*bump + radius1_Slider.value()*bump * cos(sigma+offset));
-      let z = radius1_Slider.value()*bump * sin(sigma+offset);
-      vertex(x, y, z);
-    }
-    endShape(CLOSE);
   }
 }
 
