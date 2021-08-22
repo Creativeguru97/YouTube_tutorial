@@ -61,8 +61,7 @@ let sketch = function(p){
       p.point(xL, yL, zL);
       p.point(xR, yR, zR);
 
-      console.log(p.mouseX);
-
+      // console.log(p.mouseX);
 
       // p.stroke(0, 100, 100);
       // p.strokeWeight(30);

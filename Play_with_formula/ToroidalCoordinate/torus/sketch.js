@@ -71,14 +71,14 @@ function draw(){
 
 function torusType1(){
   for(let sigma = 0; sigma < sigmaMaxSlider.value(); sigma += 360/sigmaDensitySlider.value()){
-    beginShape();
+    beginShape(POINTS);
     for(let phi = 0; phi < phiMaxSlider.value(); phi += 360/phiDensitySlider.value()){
       let x = (radius0_Slider.value()+radius1_Slider.value() * cos(phi+offset)) * sin(sigma+offset);
       let y = radius1_Slider.value() * sin(phi+offset);
       let z = (radius0_Slider.value()+radius1_Slider.value() * cos(phi+offset)) * cos(sigma+offset);
       vertex(x, y, z);
     }
-    endShape(CLOSE);
+    endShape();
   }
 }
 

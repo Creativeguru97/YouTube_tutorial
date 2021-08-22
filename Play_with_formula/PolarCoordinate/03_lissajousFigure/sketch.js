@@ -4,6 +4,10 @@ let offset = 1;
 let sineComponent;
 let cosineComponent;
 
+let freqSlider, freqSlider2;
+
+let freqValue, freqValue2;
+
 function setup(){
   createCanvas(800, 800);
   angleMode(DEGREES);
@@ -11,10 +15,20 @@ function setup(){
 
   noFill();
   stroke(32, 18, 99, 100);
-  strokeWeight(1);
+  strokeWeight(5);
 
   sineComponent = new LissajousComponent(-width/4, height/4, 0, 0, 150, 0);
   cosineComponent = new LissajousComponent(width/4, -height/4, 0, 0, 150, 0);
+
+  freqValue = createDiv();
+  freqValue.class("valueDisplay");
+  freqSlider = createSlider(1, 12, 1, 0.01);
+  freqSlider.class("Slider");
+
+  freqValue2 = createDiv();
+  freqValue2.class("valueDisplay");
+  freqSlider2 = createSlider(1, 12, 1, 0.01);
+  freqSlider2.class("Slider");
 }
 
 function draw(){
@@ -23,8 +37,11 @@ function draw(){
   translate(width/2, height/2);
 
   shadow();
-  lissajous(200);
+  lissajous(250);
   // lissajousExplain(150, width/4, height/4);
+
+  freqValue.html("frequency: " + freqSlider.value());
+  freqValue2.html("frequency2: " + freqSlider2.value());
 }
 
 function lissajous(radius){
@@ -34,8 +51,8 @@ function lissajous(radius){
 
   beginShape();
   for(let theta = 0; theta < 360; theta += 1){
-    let x = radius * cos(theta*freqX);
-    let y = radius * sin(theta*freqY);
+    let x = radius * cos(theta*freqSlider.value());
+    let y = radius * sin(theta*freqSlider2.value());
     vertex(x, y);
   }
   endShape();

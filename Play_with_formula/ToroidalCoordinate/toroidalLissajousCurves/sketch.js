@@ -7,6 +7,7 @@ let freqSlider2, freqValue2;
 let radius0_Slider, radius1_Slider;
 let radius0Value, radius1Value;
 
+
 function setup(){
   createCanvas(700, 500, WEBGL);
   angleMode(DEGREES);

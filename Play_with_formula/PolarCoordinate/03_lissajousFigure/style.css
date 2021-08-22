@@ -2,18 +2,30 @@ body{
   background-color: #47585c; /*color name: 錆鼠 さびねず*/
 }
 
-#video{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index:-1;
-  border: 3px #fff solid;
-	border-radius: 10px;
+.valueDisplay{
+  color: #FFEBCD;
+  margin-left: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:100;
 }
 
-#canvas{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index:1;
+.Slider{
+  -webkit-appearance: none;
+  background: none;
+  height:16px;
+  width:250px;
+  border-radius: 8px;
+  border: 1px solid #FFEBCD;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.Slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width:12px;
+  height:12px;
+  border-radius: 6px;
+  background: #FFEBCD;
+  outline: none;
 }

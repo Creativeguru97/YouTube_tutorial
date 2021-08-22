@@ -17,7 +17,7 @@ faceMesh.onResults(gotFaces);
 
 function gotFaces(results) {
   detections = results;
-  // console.log(detections);
+  console.log(detections);
 }
 
 const camera = new Camera(videoElement, {

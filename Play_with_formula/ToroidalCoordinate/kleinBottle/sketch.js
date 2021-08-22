@@ -108,9 +108,9 @@ function KleinBottle_Nordstrand(){//Doesn't work well
 }
 
 function GraysKleinBottle(r0, r1, n, m){//Work well
-  for(let theta = 0; theta < 360; theta += 5){
+  for(let theta = 0; theta < 360; theta += 7){
     beginShape();
-    for(let phi = 0; phi < 720; phi += 5){
+    for(let phi = 0; phi < 720; phi += 7){
       let x = r0*((r1 + cos(n*phi/2.0) * sin(theta) - sin(n*phi/2.0) * sin(2*theta)) * cos(m*phi/2.0));
       let y = r0*((r1 + cos(n*phi/2.0) * sin(theta) - sin(n*phi/2.0) * sin(2*theta)) * sin(m*phi/2.0));
       let z = r0*(sin(n*phi/2.0) * sin(theta) + cos(n*phi/2.0) * sin(2*theta));

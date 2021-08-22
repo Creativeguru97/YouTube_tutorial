@@ -1,4 +1,4 @@
-let r = 160;
+let r = 250;
 
 let freqSlider, freqSlider2;
 
@@ -7,11 +7,11 @@ let freqValue, freqValue2;
 let angle = 60, angle2 = 50;
 
 function setup(){
-  createCanvas(700, 700, WEBGL);
+  createCanvas(800, 800, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB);
   stroke(321, 38, 80);
-  strokeWeight(3);
+  strokeWeight(5);
   noFill();
 
   freqValue = createDiv();
