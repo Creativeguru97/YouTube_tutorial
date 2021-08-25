@@ -9,7 +9,7 @@ let radius0Value, radius1Value;
 
 
 function setup(){
-  createCanvas(700, 500, WEBGL);
+  createCanvas(700, 700, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
@@ -30,12 +30,12 @@ function setup(){
 
   freqValue = createDiv();
   freqValue.class("valueDisplay");
-  freqSlider = createSlider(1, 30, 14, 0.1);
+  freqSlider = createSlider(1, 30, 14, 0.01);
   freqSlider.class("Slider");
 
   freqValue2 = createDiv();
   freqValue2.class("valueDisplay");
-  freqSlider2 = createSlider(1, 30, 15, 0.1);
+  freqSlider2 = createSlider(1, 30, 15, 0.01);
   freqSlider2.class("Slider");
 }
 

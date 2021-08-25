@@ -8,7 +8,7 @@ const faceMesh = new FaceMesh({locateFile: (file) => {
 }});
 
 faceMesh.setOptions({
-  maxNumFaces: 1,
+  maxNumFaces: 2,
   minDetectionConfidence: 0.8,
   minTrackingConfidence: 0.5
 });
@@ -17,7 +17,7 @@ faceMesh.onResults(gotFaces);
 
 function gotFaces(results) {
   detections = results;
-  console.log(detections);
+  // console.log(detections.multiFaceLandmarks);
 }
 
 const camera = new Camera(videoElement, {

@@ -7,7 +7,7 @@ let freqSlider2, freqValue2;
 let offset = 0;
 
 function setup(){
-  createCanvas(700, 500, WEBGL);
+  createCanvas(700, 700, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
