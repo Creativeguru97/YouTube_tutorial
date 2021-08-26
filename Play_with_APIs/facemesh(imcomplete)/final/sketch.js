@@ -4,10 +4,18 @@ let canvas;
 
 let sketch = function(p){
 
-  let hud;
+  let statusHud_0;
+  let statusHud_1;
+  let informationHud;
+  let horizon;
+  let angleBar;
 
   p.preload = function(){
-    hud = p.loadImage("images/hud.png");
+    statusHud_0 = p.loadImage("images/status_0.png");
+    statusHud_1 = p.loadImage("images/status_1.png");
+    informationHud = p.loadImage("images/information.png");
+    horizon = p.loadImage("images/horizon.png");
+    angleBar = p.loadImage("images/angle.png");
   }
 
   p.setup = function(){
@@ -18,6 +26,7 @@ let sketch = function(p){
     p.angleMode(p.DEGREES);
     p.imageMode(p.CENTER);
     p.frameRate(30);
+    p.noStroke();
   }
 
   p.draw = function(){
@@ -73,11 +82,11 @@ let sketch = function(p){
 
 
       p.stroke(360, 100, 100);
-      p.strokeWeight(20);
-      p.point(xL, yL, zL);
-      p.point(xR, yR, zR);
-      p.point(xT, yT, zT);
-      p.point(xB, yB, zB);
+      // p.strokeWeight(20);
+      // p.point(xL, yL, zL);
+      // p.point(xR, yR, zR);
+      // p.point(xT, yT, zT);
+      // p.point(xB, yB, zB);
 
       // console.log(p.mouseX);
 
@@ -91,58 +100,56 @@ let sketch = function(p){
 
       let depth = p.map(distV, p.width/4, p.width/2, 120, 240);
 
+      //information
       p.push();
         p.translate(xL+depth/4, yL+depth/1.5, zL-50);
         p.rotateY(angleY+40);
         p.rotateX(-angleX-20);
-        p.rotateZ(angleZ);
-        p.texture(hud);
+        p.rotateZ(angleZ+90);
+        p.texture(informationHud);
         p.noStroke();
-        p.box(depth, depth, 0);
+        p.plane(depth*3/4, depth);
+
+        p.translate(0, 0, 15);
+        p.plane(depth*3/4, depth);
+
+        p.translate(0, 0, 15);
+        p.plane(depth*3/4, depth);
       p.pop();
 
+      //status_0, status_1
       p.push();
-        p.translate(xR-depth/4, yR+depth/1.5, zR-50);
+        p.translate(xR-depth/4, yR+depth/1.5, zR-100);
         p.rotateY(angleY-40);
         p.rotateX(angleX-20);
-        p.rotateZ(angleZ);
-        p.texture(hud);
+        p.rotateZ(-angleZ-90);
+        p.texture(statusHud_1);
         p.noStroke();
-        p.box(depth, depth, 0);
+        p.plane(depth, depth*1.05);
+
+        p.translate(0, 0, 30);
+        p.rotateZ(-20);
+        p.texture(statusHud_0);
+        p.plane(depth, depth*1.2);
+
+        p.translate(0, 0, 5);
+        p.plane(depth, depth*1.2);
+      p.pop();
+
+      //horizon line
+      p.push();
+        p.translate(xB, yB, zB+50);
+        p.texture(horizon);
+        p.noStroke();
+        p.plane(depth/4*6.44, depth/4);
+
+        p.rotateZ(angleX+90);
+        p.texture(angleBar);
+        p.plane(depth/90, depth/6);
       p.pop();
     }
   }
 
-  p.drawLandmarks = function(indexArray, hue){
-    p.noFill();
-    p.strokeWeight(8);
-    for(let i=0; i<detections.multiHandLandmarks.length; i++){
-      for(let j=indexArray[0]; j<indexArray[1]; j++){
-        let x = detections.multiHandLandmarks[i][j].x * p.width;
-        let y = detections.multiHandLandmarks[i][j].y * p.height;
-        // let z = detections.multiHandLandmarks[i][j].z;
-        p.stroke(hue, 40, 255);
-        p.point(x, y);
-      }
-    }
-  }
-
-  p.drawLines = function(index){
-    p.stroke(0, 0, 255);
-    p.strokeWeight(3);
-    for(let i=0; i<detections.multiHandLandmarks.length; i++){
-      for(let j=0; j<index.length-1; j++){
-        let x = detections.multiHandLandmarks[i][index[j]].x * p.width;
-        let y = detections.multiHandLandmarks[i][index[j]].y * p.height;
-        // let z = detections.multiHandLandmarks[i][index[j]].z;
-
-        let _x = detections.multiHandLandmarks[i][index[j+1]].x * p.width;
-        let _y = detections.multiHandLandmarks[i][index[j+1]].y * p.height;
-        // let _z = detections.multiHandLandmarks[i][index[j+1]].z;
-        p.line(x, y, _x, _y);
-      }
-    }
-  }
 }
 
 let myp5 = new p5(sketch);
