@@ -11,7 +11,7 @@ function setup(){
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  strokeWeight(3);
+  strokeWeight(4);
   stroke(23, 59, 75);//color name: rakuda-iro
   noFill();
 
@@ -38,7 +38,7 @@ function setup(){
 }
 
 function draw(){
-  background(0);//color name: torinoko-iro
+  background(43, 19, 100);//color name: torinoko-iro
   orbitControl(4, 4);//Mouse control
 
   rotateX(-25);

@@ -9,7 +9,7 @@ let radius0Value, radius1Value;
 
 
 function setup(){
-  createCanvas(700, 700, WEBGL);
+  createCanvas(700, 500, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
