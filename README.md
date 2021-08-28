@@ -18,9 +18,9 @@ If you find it inspiring or useful, you leave a warmful comment. That’s gonna 
 ------------- | -------------
 ![](/readMeImages/faceAPI.jpeg)  | ![](/readMeImages/handsDetection.jpeg)
 
-Iron man HUD effect by facemesh and p5.js | Null
+Iron man HUD effect with facemesh for p5.js coders | Body segmentation for p5.js coders
 ------------- | -------------
-![](/readMeImages/ComingSoon/ComingSoon0.png) | Null
+![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
 
 
 
