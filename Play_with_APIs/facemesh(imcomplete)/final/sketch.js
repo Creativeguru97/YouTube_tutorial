@@ -4,15 +4,20 @@ let canvas;
 
 let sketch = function(p){
 
-  let statusHud_0;
-  let statusHud_1;
+  let statusHud_0, statusHud_1, statusHud_2, statusHud_3;
   let informationHud;
   let horizon;
   let angleBar;
+  let ruler;
+  let infoGraphics;
 
   p.preload = function(){
     statusHud_0 = p.loadImage("images/status_0.png");
     statusHud_1 = p.loadImage("images/status_1.png");
+    statusHud_2 = p.loadImage("images/status_2.png");
+    statusHud_3 = p.loadImage("images/status_3.png");
+    ruler = p.loadImage("images/ruler.png");
+
     informationHud = p.loadImage("images/information.png");
     horizon = p.loadImage("images/horizon.png");
     angleBar = p.loadImage("images/angle.png");
@@ -21,16 +26,27 @@ let sketch = function(p){
   p.setup = function(){
     canvas = p.createCanvas(640, 480, p.WEBGL);
     canvas.id("canvas");
+    // p.orbitControl(4,4);
+    infoGraphics = p.createGraphics(100, 125);
+    infoGraphics.clear();
+    // infoGraphics.background(0);
+    infoGraphics.fill(255, 100, 100);
+    infoGraphics.noStroke();
+    infoGraphics.textSize(6);
+    infoGraphics.blendMode(p.SCREEN);
 
     p.colorMode(p.HSB);
     p.angleMode(p.DEGREES);
     p.imageMode(p.CENTER);
     p.frameRate(30);
     p.noStroke();
+    p.noFill();
+    p.blendMode(p.SCREEN);
   }
 
   p.draw = function(){
     p.clear();
+    infoGraphics.clear();
     if(detections != undefined){
       if(detections.multiFaceLandmarks != undefined){
         // p.drawFaces();
@@ -81,7 +97,7 @@ let sketch = function(p){
 
 
 
-      p.stroke(360, 100, 100);
+      // p.stroke(360, 100, 100);
       // p.strokeWeight(20);
       // p.point(xL, yL, zL);
       // p.point(xR, yR, zR);
@@ -97,17 +113,26 @@ let sketch = function(p){
       let angleZ = p.atan2(yT - yB, zT - zB);
 
       let distV = p.dist(xT, yT, xB, yB);
-
       let depth = p.map(distV, p.width/4, p.width/2, 120, 240);
 
       //information
       p.push();
         p.translate(xL+depth/4, yL+depth/1.5, zL-50);
-        p.rotateY(angleY+40);
+        p.rotateY(angleY+30);
         p.rotateX(-angleX-20);
         p.rotateZ(angleZ+90);
+
+        //Display information logs
+        for(let i=0; i<14; i++){
+          let info = detections.multiFaceLandmarks[0][i];
+          infoGraphics.text("(" + p.nf(info.x, 1, 6) + ", " + p.nf(info.y, 1, 6) + ", " + p.nf(info.z, 1, 6) + ")", 5, i*8+16);
+        }
+        p.texture(infoGraphics);
+        p.plane(depth*3/4-30, depth-30);
+
+        //Documents outline
         p.texture(informationHud);
-        p.noStroke();
+        p.translate(0, 0, 1);
         p.plane(depth*3/4, depth);
 
         p.translate(0, 0, 15);
@@ -127,18 +152,41 @@ let sketch = function(p){
         p.noStroke();
         p.plane(depth, depth*1.05);
 
-        p.translate(0, 0, 30);
+        p.translate(0, 0, 1);
+        p.texture(statusHud_2);
+        p.plane(depth/3, depth/3);
+
+        p.rotateZ(-60);
+        p.translate(0, 0, 1);
+        p.texture(statusHud_2);
+        p.plane(depth/2, depth/2);
+
+        p.rotateZ(60);
+        p.noStroke();
+        p.translate(0, 0, 25);
         p.rotateZ(-20);
         p.texture(statusHud_0);
         p.plane(depth, depth*1.2);
 
-        p.translate(0, 0, 5);
+        p.translate(0, 0, 1);
+        p.texture(statusHud_3);
+        p.plane(depth*2/3, depth*2/3);
+
+        p.translate(0, 0, 10);
+        p.texture(statusHud_0);
         p.plane(depth, depth*1.2);
+      p.pop();
+
+      p.push();
+        p.translate(xB-50, yB-150, zB+20);
+        p.texture(ruler);
+        p.noStroke();
+        p.plane(depth*1.2*1.7, depth*1.2);
       p.pop();
 
       //horizon line
       p.push();
-        p.translate(xB, yB, zB+50);
+        p.translate(xB, yB, zB+30);
         p.texture(horizon);
         p.noStroke();
         p.plane(depth/4*6.44, depth/4);
