@@ -1,5 +1,5 @@
 # Welcome to my YouTube tutorial page  
-[My channel](https://www.youtube.com/channel/UCACzb9JwH0ppt9Xwcpz9Bmw)
+## [My channel](https://www.youtube.com/channel/UCACzb9JwH0ppt9Xwcpz9Bmw)
 
 ### I share p5.js tutorials about 
 * play with math(mostly geometry) and algorithm
@@ -7,6 +7,7 @@
 * Useful p5.js tips.
 * Study with me
 
+If you find it inspiring or useful, you leave a warmful comment. That’s gonna be my motivation😊
 
 
 ## Some of my tutorials below
@@ -17,9 +18,9 @@
 ------------- | -------------
 ![](/readMeImages/faceAPI.jpeg)  | ![](/readMeImages/handsDetection.jpeg)
 
-Iron man HUD effect by facemesh and p5.js | Null
+Iron man HUD effect with facemesh for p5.js coders | Body segmentation for p5.js coders
 ------------- | -------------
-![](/readMeImages/ComingSoon/ComingSoon0.png) | Null
+![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
 
 
 
@@ -36,5 +37,3 @@ Iron man HUD effect by facemesh and p5.js | Null
 Knot theory  | Super shapes
 ------------- | -------------
 ![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
-
-If you find it inspiring or useful, you leave a warmful comment. That’s gonna be my motivation😊
