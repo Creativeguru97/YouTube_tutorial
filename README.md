@@ -14,26 +14,19 @@ If you find it inspiring or useful, you leave a warmful comment. That’s gonna 
 ### [web APIs](https://youtube.com/playlist?list=PLRD0f8kJKduLKW9uMmitwa6I_nOAI2GM6)
 
 
-[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU)
-------------- | -------------
-![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png)
-
-Iron man HUD effect with facemesh for p5.js coders | Body segmentation for p5.js coders
-------------- | -------------
-![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
+[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | Iron man HUD effect for p5.js coders
+------------- | ------------- | -------------
+![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
 
 
 
 ### [Play with geometry](https://youtube.com/playlist?list=PLRD0f8kJKduISKaiBZzWsMqsAzw9qzSNE)
 
-[Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8)
-------------- | -------------
-![](/readMeImages/polarCoordinates.png) | ![](/readMeImages/soundReactive.png)
+[Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Implement Spherical Coordinates by p5.js](https://youtu.be/SGHWZz5Mrsw)
+------------- | ------------- | -------------
+![](/readMeImages/polarCoordinates.png) | ![](/readMeImages/soundReactive.png) | ![](/readMeImages/sphericalCoordinates.png)
 
-[Implement Spherical Coordinates by p5.js](https://youtu.be/SGHWZz5Mrsw) | [Implement Toroidal Coordinates by p5.js](https://youtu.be/iNA4yH7DAN8)
-------------- | -------------
-![](/readMeImages/sphericalCoordinates.png) | ![](/readMeImages/toroidalCoordinates.png)
 
-Knot theory  | Super shapes
-------------- | -------------
-![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
+[Implement Toroidal Coordinates by p5.js](https://youtu.be/iNA4yH7DAN8) | Knot theory | Super shapes
+------------- | ------------- | -------------
+![](/readMeImages/toroidalCoordinates.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
