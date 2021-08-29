@@ -16,7 +16,7 @@ If you find it inspiring or useful, you leave a warmful comment. That’s gonna 
 
 [Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU)
 ------------- | -------------
-![](/readMeImages/faceAPI.jpeg)  | ![](/readMeImages/handsDetection.jpeg)
+![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png)
 
 Iron man HUD effect with facemesh for p5.js coders | Body segmentation for p5.js coders
 ------------- | -------------
@@ -28,11 +28,11 @@ Iron man HUD effect with facemesh for p5.js coders | Body segmentation for p5.js
 
 [Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8)
 ------------- | -------------
-![](/readMeImages/polarCoordinates.jpeg) | ![](/readMeImages/soundReactive.jpeg)
+![](/readMeImages/polarCoordinates.png) | ![](/readMeImages/soundReactive.png)
 
 [Implement Spherical Coordinates by p5.js](https://youtu.be/SGHWZz5Mrsw) | [Implement Toroidal Coordinates by p5.js](https://youtu.be/iNA4yH7DAN8)
 ------------- | -------------
-![](/readMeImages/sphericalCoordinates.jpeg) | ![](/readMeImages/toroidalCoordinates.jpeg)
+![](/readMeImages/sphericalCoordinates.png) | ![](/readMeImages/toroidalCoordinates.png)
 
 Knot theory  | Super shapes
 ------------- | -------------
