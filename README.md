@@ -3,7 +3,7 @@
 
 ### I share p5.js tutorials about 
 * play with math(mostly geometry) and algorithm
-* Web APi
+* Web API
 * Useful p5.js tips.
 * Study with me
 
