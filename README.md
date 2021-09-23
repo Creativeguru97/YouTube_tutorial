@@ -3,7 +3,7 @@
 
 ### I share p5.js tutorials about 
 * play with math(mostly geometry) and algorithm
-* Implement web APi
+* Web API
 * Useful p5.js tips.
 * Study with me
 
@@ -14,7 +14,7 @@ If you find it inspiring or useful, you leave a warmful comment. That’s gonna 
 ### [web APIs](https://youtube.com/playlist?list=PLRD0f8kJKduLKW9uMmitwa6I_nOAI2GM6)
 
 
-[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | Iron man HUD effect for p5.js coders
+[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | Doodle on face with facemesh and p5.js
 ------------- | ------------- | -------------
 ![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
 
