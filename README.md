@@ -22,7 +22,7 @@ If you find it inspiring or useful, you leave a warmful comment. That’s gonna 
 
 ### [Play with geometry](https://youtube.com/playlist?list=PLRD0f8kJKduISKaiBZzWsMqsAzw9qzSNE)
 
-[Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Implement Spherical Coordinates by p5.js](https://youtu.be/SGHWZz5Mrsw)
+[Implement Polar Coordinates by p5.js](https://youtu.be/sncVcmV6bI8) | [Sound Visualization with Polar Coordinates](https://youtu.be/sncVcmV6bI8) | [Implement Spherical Coordinates by p5.js](https://youtu.be/SGHWZz5Mrsw)
 ------------- | ------------- | -------------
 ![](/readMeImages/polarCoordinates.png) | ![](/readMeImages/soundReactive.png) | ![](/readMeImages/sphericalCoordinates.png)
 
