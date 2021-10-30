@@ -14,7 +14,7 @@ If you find it inspiring or useful, you leave a warmful comment. That’s gonna 
 ### [web APIs](https://youtube.com/playlist?list=PLRD0f8kJKduLKW9uMmitwa6I_nOAI2GM6)
 
 
-[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | [Doodle on the face with facemesh and p5.js](https://youtu.be/yrsxDOBL5xM)
+[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | [Draw on the face by facemesh and p5.js](https://youtu.be/yrsxDOBL5xM)
 ------------- | ------------- | -------------
 ![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png) | ![](/readMeImages/facemesh.png)
 
