@@ -1,0 +1,33 @@
+body{
+  background-color: #000;
+}
+
+#canvas{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index:1;
+}
+
+#video{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index:0;
+}
+
+.valueDisplay{
+  position: relative;
+  margin-left: 665px;
+  color: #fff;
+}
+
+.Slider{
+  position: relative;
+  margin-top: 5px;
+  margin-left: 660px;
+  margin-bottom: 10px;
+}
+
+.Slider::-webkit-slider-thumb {
+}
