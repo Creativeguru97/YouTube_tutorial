@@ -91,7 +91,7 @@ let sketch = function(p){
     if(p.key === 'c'){
       if(shapes[shapes.length-1].length > 0){
         shapes.push([]);
-        shapeIndex++;
+        shapeIndex = shapes.length-1;
       }
       console.log(shapes);
     }

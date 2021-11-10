@@ -241,7 +241,7 @@ let sketch = function(p){
             indices : []
           }
         );
-        shapeIndex++;
+        shapeIndex = shapes.length-1;
       }
       console.log(shapes);
     }
