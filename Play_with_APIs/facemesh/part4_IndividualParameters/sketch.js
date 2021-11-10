@@ -282,12 +282,12 @@ let sketch = function(p){
   p.keyPressed = function(){
     if(p.keyCode === p.UP_ARROW){
       if(shapes[shapeIndex] != undefined){
-        if(shapes[shapeIndex].length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
+        if(shapes[shapeIndex].indices.length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
         if(shapeIndex < shapes.length-1) shapeIndex++;
       }
     } else if(p.keyCode === p.DOWN_ARROW){
       if(shapes[shapeIndex] != undefined){
-        if(shapes[shapeIndex].length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
+        if(shapes[shapeIndex].indices.length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
         if(shapeIndex > 0) shapeIndex--;
       }
     }
