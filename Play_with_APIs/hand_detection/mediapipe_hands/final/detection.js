@@ -1,4 +1,3 @@
-
 let detections = {};
 
 const videoElement = document.getElementById('video');
