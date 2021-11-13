@@ -9,7 +9,7 @@
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         152,
         148,
         176,
@@ -58,7 +58,7 @@
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         73,
         180,
         84,
@@ -81,7 +81,7 @@
       "stroke_S": 60,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         13,
         17
       ]
@@ -95,7 +95,7 @@
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         92,
         73,
         82,
@@ -103,6 +103,53 @@
         312,
         303,
         322
+      ]
+    },
+    {
+      "fill_H": 345,
+      "fill_S": 50,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 130,
+      "stroke_S": 50,
+      "stroke_B": 0,
+      "stroke_O": 100,
+      "indices": [
+        225,
+        100
+      ]
+    },
+    {
+      "fill_H": 345,
+      "fill_S": 50,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 130,
+      "stroke_S": 50,
+      "stroke_B": 0,
+      "stroke_O": 100,
+      "indices": [
+        221,
+        117
+      ]
+    },
+    {
+      "fill_H": 345,
+      "fill_S": 50,
+      "fill_B": 100,
+      "fill_O": 0,
+      "stroke_H": 130,
+      "stroke_S": 50,
+      "stroke_B": 0,
+      "stroke_O": 100,
+      "indices": [
+        453,
+        452,
+        451,
+        450,
+        449,
+        448,
+        261
       ]
     },
     {
@@ -114,7 +161,7 @@
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": []
+      "indices": []
     }
   ]
 }

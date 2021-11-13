@@ -9,7 +9,7 @@
       "stroke_S": 100,
       "stroke_B": 50,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         10,
         338,
         297,
@@ -58,7 +58,7 @@
       "stroke_S": 100,
       "stroke_B": 50,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         6,
         6,
         294,
@@ -75,7 +75,7 @@
       "stroke_S": 100,
       "stroke_B": 50,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         31,
         65,
         233,
@@ -91,7 +91,7 @@
       "stroke_S": 100,
       "stroke_B": 50,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         465,
         258,
         265,
@@ -108,7 +108,7 @@
       "stroke_S": 100,
       "stroke_B": 50,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         0,
         312,
         302,
@@ -151,7 +151,7 @@
       "stroke_S": 100,
       "stroke_B": 50,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         397
       ]
     }

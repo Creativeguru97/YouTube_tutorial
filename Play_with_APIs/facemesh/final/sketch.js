@@ -1,9 +1,7 @@
 let sketch = function(p){
-  let maskCanvas;
+  let canvas;
   let dMouse = [];
-
-  let userInterface;
-  let editButton;
+  let closest = 0;
   let isEditMode = false;
 
   let fill_H_Slider, fill_S_Slider, fill_B_Slider, fill_O_Slider;
@@ -11,133 +9,188 @@ let sketch = function(p){
   let stroke_H_Slider, stroke_S_Slider, stroke_B_Slider, stroke_O_Slider;
   let stroke_H_Value, stroke_S_Value, stroke_B_Value, stroke_O_Value;
 
-  let screenShotButton;
-  let completeButton;
-  let undoButton;
-  let deleteButton;
-
+  let edit_button;
+  let screenshot_button;
+  let save_drawing_button;
+  let index_UP_button;
+  let index_DOWN_button;
+  let complete_button;
+  let undo_button;
+  let delete_button;
 
   let shapes = [{
     fill_H : p.random(360),
-    fill_S : 100,
+    fill_S : 50,
     fill_B : 100,
     fill_O : 100,
     stroke_H : p.random(360),
-    stroke_S : 100,
+    stroke_S : 50,
     stroke_B : 100,
     stroke_O : 100,
-    shapeVerticies : []
+    indices : []
   }];
 
-  let closest;
-  let editingIndex = 0;
-
+  let shapeIndex = 0;
+  let tParameters;
   let capture;
 
   let shapesData;
+  let isDragOver = false;
 
-  p.preload = function(){
-    shapesData = p.loadJSON("masks/pumpkin.json");
-    // shapesData = p.loadJSON("masks/ghost.json");
-    // shapesData = p.loadJSON("masks/grey.json");
-    // shapesData = p.loadJSON("masks/operaMask.json");
-    // shapesData = p.loadJSON("masks/operaMask2.json");
-    // shapesData = p.loadJSON("masks/operaMask3.json");
-    // shapesData = p.loadJSON("masks/operaMask4.json");
-    // shapesData = p.loadJSON("masks/fox.json");
-    // shapesData = p.loadJSON("masks/clown.json");
-    // shapesData = p.loadJSON("masks/clown2.json");
-    // shapesData = p.loadJSON("masks/clown3.json");
-  }
+  // p.preload = function(){
+  //   shapesData = p.loadJSON("drawings/firstDraw.json");
+  // }
+
+  let isMouseOver = false;
 
   p.setup = function(){
-    maskCanvas = p.createCanvas(1280, 720);
-    maskCanvas.id("canvas");
+    canvas = p.createCanvas(640, 480);
+    canvas.id('canvas');
+    canvas.mouseOver(() => {isMouseOver = true});
+    canvas.mouseOut(() => {isMouseOver = false});
+
+    canvas.dragOver(() => {
+      isDragOver = true;
+    });
+    canvas.dragLeave(() => {
+      isDragOver = false;
+    });
+
+    canvas.drop((file) => {
+      if(file.subtype == 'json'){
+        shapes = file.data.shapes;
+        shapeIndex = shapes.length-1;
+        isDragOver = false;
+      }else{
+        isDragOver = false;
+      }
+    });
+
     p.colorMode(p.HSB, 360, 100, 100, 100);
 
-    editButton = p.createButton("Edit mode off");
-    editButton.mousePressed(p.toggleEdit);
-    editButton.class('EditButton');
+    // --- Edit button ---
+    edit_button = p.createButton("Edit mode off");
+    edit_button.mousePressed(p.toggleEdit);
+    edit_button.class('Buttons');
+    edit_button.id('edit_button');
 
-    fill_H_Value = p.createP();
+    // --- Sliders ---
+    fill_H_Value = p.createDiv();
     fill_H_Value.class('valueDisplay');
     fill_H_Slider = p.createSlider(0, 360, p.random(360), 5);
     fill_H_Slider.class('Slider');
+    fill_H_Slider.input(() => {p.editShapes('fill_H', fill_H_Slider.value())});
 
-    fill_S_Value = p.createP();
+    fill_S_Value = p.createDiv();
     fill_S_Value.class('valueDisplay');
     fill_S_Slider = p.createSlider(0, 100, 50, 5);
     fill_S_Slider.class('Slider');
+    fill_S_Slider.input(() => {p.editShapes('fill_S', fill_S_Slider.value())});
 
-    fill_B_Value = p.createP();
+    fill_B_Value = p.createDiv();
     fill_B_Value.class('valueDisplay');
     fill_B_Slider = p.createSlider(0, 100, 100, 5);
     fill_B_Slider.class('Slider');
+    fill_B_Slider.input(() => {p.editShapes('fill_B', fill_B_Slider.value())});
 
-    fill_O_Value = p.createP();
+    fill_O_Value = p.createDiv();
     fill_O_Value.class('valueDisplay');
     fill_O_Slider = p.createSlider(0, 100, 100, 5);
     fill_O_Slider.class('Slider');
+    fill_O_Slider.input(() => {p.editShapes('fill_O', fill_O_Slider.value())});
 
-    stroke_H_Value = p.createP();
+    stroke_H_Value = p.createDiv();
     stroke_H_Value.class('valueDisplay');
     stroke_H_Slider = p.createSlider(0, 360, p.random(360), 5);
     stroke_H_Slider.class('Slider');
+    stroke_H_Slider.input(() => {p.editShapes('stroke_H', stroke_H_Slider.value())});
 
-    stroke_S_Value = p.createP();
+    stroke_S_Value = p.createDiv();
     stroke_S_Value.class('valueDisplay');
     stroke_S_Slider = p.createSlider(0, 100, 50, 5);
     stroke_S_Slider.class('Slider');
+    stroke_S_Slider.input(() => {p.editShapes('stroke_S', stroke_S_Slider.value())});
 
-    stroke_B_Value = p.createP();
+    stroke_B_Value = p.createDiv();
     stroke_B_Value.class('valueDisplay');
     stroke_B_Slider = p.createSlider(0, 100, 100, 5);
     stroke_B_Slider.class('Slider');
+    stroke_B_Slider.input(() => {p.editShapes('stroke_B', stroke_B_Slider.value())});
 
-    stroke_O_Value = p.createP();
+    stroke_O_Value = p.createDiv();
     stroke_O_Value.class('valueDisplay');
     stroke_O_Slider = p.createSlider(0, 100, 100, 5);
     stroke_O_Slider.class('Slider');
+    stroke_O_Slider.input(() => {p.editShapes('stroke_O', stroke_O_Slider.value())});
 
+    // --- Image buttons ---
+    screenshot_button = p.createButton('');
+    screenshot_button.mousePressed(p.screenShot);
+    screenshot_button.class('imageButtons');
+    screenshot_button.id('screenshot_button');
 
-    screenShotButton = p.createButton('');
-    screenShotButton.mousePressed(p.screenShot);
-    screenShotButton.id('ScreenShotButton');
+    save_drawing_button = p.createButton('');
+    save_drawing_button.mousePressed(p.saveDrawing);
+    save_drawing_button.class('imageButtons');
+    save_drawing_button.id('save_drawing_button');
 
-    completeButton = p.createButton("complete");
-    completeButton.mousePressed(p.addShape);
-    completeButton.class('Buttons');
-    completeButton.id('CompleteButton');
+    index_UP_button = p.createButton('');
+    index_UP_button.mousePressed(p.upIndex);
+    index_UP_button.class('imageButtons');
+    index_UP_button.id('index_UP_button');
 
-    undoButton = p.createButton("undo");
-    undoButton.mousePressed(p.undo);
-    undoButton.class('Buttons');
-    undoButton.id('UndoButton');
+    index_DOWN_button = p.createButton('');
+    index_DOWN_button.mousePressed(p.downIndex);
+    index_DOWN_button.class('imageButtons');
+    index_DOWN_button.id('index_DOWN_button');
 
-    deleteButton = p.createButton("delete");
-    deleteButton.mousePressed(p.deleteShapes);
-    deleteButton.class('Buttons');
-    deleteButton.id('DeleteButton');
+    // --- Text buttons ---
+    complete_button = p.createButton("complete");
+    complete_button.mousePressed(p.complete);
+    complete_button.class('Buttons');
+    complete_button.id('complete_button');
+
+    undo_button = p.createButton("undo");
+    undo_button.mousePressed(p.undo);
+    undo_button.class('Buttons');
+    undo_button.id('undo_button');
+
+    delete_button = p.createButton("delete");
+    delete_button.mousePressed(p.deleteDrawing);
+    delete_button.class('Buttons');
+    delete_button.id('delete_button');
 
     capture = p.createCapture(p.VIDEO);
     capture.size(p.width, p.height);
     capture.hide();
 
-    shapes = shapesData.shapes;
+    // shapes = shapesData.shapes;
+    // console.log(shapes);
+    // shapeIndex = shapes.length-1;
 
-    editingIndex = shapes.length-1;
+    p.textAlign(p.CENTER, p.CENTER);
+    p.textSize(16);
   }
 
   p.draw = function(){
     p.clear();
     if(detections != undefined){
       if(detections.multiFaceLandmarks != undefined && detections.multiFaceLandmarks.length >= 1){
-        p.image(capture.get(0, 0, p.width, p.height), 0, 0, p.width, p.height);
         p.drawShapes();
-        p.shadow();
-        if(isEditMode == true) p.faceMesh();
+        if(isEditMode == true){
+          p.faceMesh();
+          p.editShapes();
+        }
 
-        p.editShapes();
+        console.log()
+
+        if(isDragOver == true){
+          p.noStroke();
+          p.fill(0, 0, 100, 10);
+          p.rect(0, 0, p.width, p.height);
+          p.fill(0, 0, 100);
+          p.text('Drag your drawing here.', p.width/2, p.height/2);
+        }
       }
     }
 
@@ -153,18 +206,14 @@ let sketch = function(p){
   }
 
   p.faceMesh = function(){
+    p.stroke(255);
+    p.strokeWeight(3);
+
     p.beginShape(p.POINTS);
-    for(let j=0; j<detections.multiFaceLandmarks[0].length; j++){
-      let x = detections.multiFaceLandmarks[0][j].x * p.width;
-      let y = detections.multiFaceLandmarks[0][j].y * p.height;
-
-      p.stroke(0);
-      p.strokeWeight(3);
+    for(let i=0; i<detections.multiFaceLandmarks[0].length; i++){
+      let x = detections.multiFaceLandmarks[0][i].x * p.width;
+      let y = detections.multiFaceLandmarks[0][i].y * p.height;
       p.vertex(x, y);
-
-      // p.strokeWeight(0);
-      p.textSize(10);
-      p.text(p.str(j), x, y);
 
       let d = p.dist(x, y, p.mouseX, p.mouseY);
       dMouse.push(d);
@@ -181,8 +230,14 @@ let sketch = function(p){
       detections.multiFaceLandmarks[0][closest].y * p.height
     );
 
-    console.log(closest);
     dMouse.splice(0, dMouse.length);
+  }
+
+  p.mouseClicked = function(){
+    if(isMouseOver == true){
+      shapes[shapeIndex].indices.push(closest);
+      console.log(shapes);
+    }
   }
 
   p.drawShapes = function(){
@@ -193,7 +248,6 @@ let sketch = function(p){
         shapes[s].fill_B,
         shapes[s].fill_O
       );
-
       p.stroke(
         shapes[s].stroke_H,
         shapes[s].stroke_S,
@@ -202,138 +256,128 @@ let sketch = function(p){
       );
       p.strokeWeight(3);
 
+      if(isEditMode == true){
+        if(s == shapeIndex) p.glow('rgba(255, 255, 255, 100)');
+        else p.glow('rgba(255, 255, 255, 0)');
+      }else if(isEditMode == false){
+        p.glow('rgba(255, 255, 255, 100)');
+      }
+
       p.beginShape();
-        for(let v=0; v<shapes[s].shapeVerticies.length; v++){
+        for(let i = 0; i < shapes[s].indices.length; i++){
           p.vertex(
-            detections.multiFaceLandmarks[0][shapes[s].shapeVerticies[v]].x * p.width,
-            detections.multiFaceLandmarks[0][shapes[s].shapeVerticies[v]].y * p.height
+            detections.multiFaceLandmarks[0][shapes[s].indices[i]].x * p.width,
+            detections.multiFaceLandmarks[0][shapes[s].indices[i]].y * p.height,
           );
         }
       p.endShape();
     }
   }
 
-  p.editShapes = function(){
-    //Temporary comment out below not to overwrite properties of the JSON
-
-    shapes[editingIndex].fill_H = fill_H_Slider.value();
-    shapes[editingIndex].fill_S = fill_S_Slider.value();
-    shapes[editingIndex].fill_B = fill_B_Slider.value();
-    shapes[editingIndex].fill_O = fill_O_Slider.value();
-
-    shapes[editingIndex].stroke_H = stroke_H_Slider.value();
-    shapes[editingIndex].stroke_S = stroke_S_Slider.value();
-    shapes[editingIndex].stroke_B = stroke_B_Slider.value();
-    shapes[editingIndex].stroke_O = stroke_O_Slider.value();
-  }
-
-  p.shadow = function(){
-    p.drawingContext.shadowOffsetX = 0;
-    p.drawingContext.shadowOffsetY = 0;
-    p.drawingContext.shadowBlur = 30;
-    p.drawingContext.shadowColor = 'rgba(255, 255, 255, 100)';
-  }
-
-  p.mouseClicked = function(){
-    if(p.mouseX >= 0 && p.mouseX <= p.width){
-      if(p.mouseY >= 0 && p.mouseY <= p.height){
-        if(isEditMode == true) shapes[editingIndex].shapeVerticies.push(closest);
-        console.log(closest);
-      }
-    }
-  }
-
-  p.toggleEdit = function(){
-    if(isEditMode == false){
-      editButton.html("Edit mode on");
-    }else if(isEditMode == true){
-      editButton.html("Edit mode off");
-    }
-    isEditMode = !isEditMode;
-
-    p.addShape();
-  }
-
-  p.addShape = function(){
-    if(shapes[shapes.length-1].shapeVerticies.length > 0){
-      shapes.push(
-        {
-          fill_H : p.random(360),
-          fill_S : 100,
-          fill_B : 100,
-          fill_O : 100,
-          stroke_H : p.random(360),
-          stroke_S : 100,
-          stroke_B : 100,
-          stroke_O : 100,
-          shapeVerticies : []
-        }
-      );//Add another JS object to store verticies index
-      editingIndex++;
-    }
-    console.log(shapes);
-  }
-
-  p.undo = function(){
-    if(shapes[shapes.length-1].shapeVerticies.length > 0){
-      shapes[shapes.length-1].shapeVerticies.pop();
-    }
-    console.log(shapes[shapes.length-1].shapeVerticies);
-  }
-
-  p.deleteShapes = function(){
-    shapes = [{
-      fill_H : p.random(360),
-      fill_S : 100,
-      fill_B : 100,
-      fill_O : 100,
-      stroke_H : p.random(360),
-      stroke_S : 100,
-      stroke_B : 100,
-      stroke_O : 100,
-      shapeVerticies : []
-    }]
-    editingIndex = 0;
-    console.log(shapes);
-  }
-
-  p.screenShot = function(){
-    p.saveCanvas('screenShot', 'png');
-  }
-
-  p.saveShapes = function(){
-    let s = {shapes};
-    p.saveJSON(s, 'drawing.json');
+  p.editShapes = function(properties, newValue){
+    shapes[shapeIndex][properties] = newValue;
   }
 
   p.keyTyped = function(){
-    //Complete editing current shape
-    if(p.key === 'c'){// C means Compulete
-      p.addShape();
-    }
-
-    //Toggle edit mode
-    if(p.key === 'e'){
-      p.toggleEdit();
-    }
-
-    //The Command Z function!: Delete the point lastest added
-    if(p.key === 'z'){
-      p.undo();
-    }
-
-    //Delete all the shapes
-    if(p.key === 'd'){
-      p.deleteShapes();
-    }
-
-    //Take a screenshot
+    if(p.key === 'e') p.toggleEdit();
+    if(p.key === 'c') p.complete();
+    if(p.key === 'z') p.undo();
+    if(p.key === 'd') p.deleteDrawing();
     if(p.key === 's') p.screenShot();
+    if(p.key === 'j') p.saveDrawing();
+  }
+  p.toggleEdit = function(){
+    isEditMode = !isEditMode;
 
-    //Save a json file
-    if(p.key === 'j'){
-      p.saveShapes();
+  }
+  p.complete = function(){
+    if(shapes[shapes.length-1].indices.length > 0){
+      if(shapes[shapeIndex].indices.length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
+      shapes.push(
+        {
+          fill_H : p.random(360),
+          fill_S : 50,
+          fill_B : 100,
+          fill_O : 100,
+          stroke_H : p.random(360),
+          stroke_S : 50,
+          stroke_B : 100,
+          stroke_O : 100,
+          indices : []
+        }
+      );
+      shapeIndex = shapes.length-1;
     }
+    console.log(shapes);
+  }
+  p.undo = function(){
+    if(shapes[shapeIndex] != undefined){
+      if(shapes[shapeIndex].indices.length > 0) shapes[shapeIndex].indices.pop();
+    }
+    console.log(shapes[shapeIndex].indices);
+  }
+  p.deleteDrawing = function(){
+    shapes = [{
+      fill_H : p.random(360),
+      fill_S : 50,
+      fill_B : 100,
+      fill_O : 100,
+      stroke_H : p.random(360),
+      stroke_S : 50,
+      stroke_B : 100,
+      stroke_O : 100,
+      indices : []
+    }]
+    shapeIndex = 0;
+    console.log(shapes);
+  }
+  p.screenShot = function(){
+    p.image(capture.get(0, 0, p.width, p.height), 0, 0, p.width, p.height);
+    p.drawShapes();
+    p.glow();
+    p.saveCanvas('screenshot', 'png');
+  }
+  p.saveDrawing = function(){
+    let s = {shapes};
+    p.saveJSON(s, 'untitled_shapes.json');
+  }
+
+
+  p.keyPressed = function(){
+    if(p.keyCode === p.UP_ARROW) p.upIndex();
+    else if(p.keyCode === p.DOWN_ARROW) p.downIndex();
+  }
+  p.upIndex = function(){
+    if(shapes[shapeIndex] != undefined){
+        if(shapes[shapeIndex].indices.length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
+        if(shapeIndex < shapes.length-1) shapeIndex++;
+        p.resetSliders();
+    }
+  }
+  p.downIndex = function(){
+    if(shapes[shapeIndex] != undefined){
+        if(shapes[shapeIndex].indices.length == 0 && shapes.length > 1) shapes.splice(shapeIndex, 1);
+        if(shapeIndex > 0) shapeIndex--;
+        p.resetSliders();
+    }
+  }
+
+  p.resetSliders = function(){
+    fill_H_Slider.value(shapes[shapeIndex].fill_H);
+    fill_S_Slider.value(shapes[shapeIndex].fill_S);
+    fill_B_Slider.value(shapes[shapeIndex].fill_B);
+    fill_O_Slider.value(shapes[shapeIndex].fill_O);
+    stroke_H_Slider.value(shapes[shapeIndex].stroke_H);
+    stroke_S_Slider.value(shapes[shapeIndex].stroke_S);
+    stroke_B_Slider.value(shapes[shapeIndex].stroke_B);
+    stroke_O_Slider.value(shapes[shapeIndex].stroke_O);
+  }
+
+  p.glow = function(glowColor){
+    p.drawingContext.shadowOffsetX = 0;
+    p.drawingContext.shadowOffsetY = 0;
+    p.drawingContext.shadowBlur = 20;
+    p.drawingContext.shadowColor = glowColor;
   }
 }
 

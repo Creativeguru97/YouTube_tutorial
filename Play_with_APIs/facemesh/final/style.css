@@ -1,11 +1,11 @@
-body {
+body{
   background-color: #000;
 }
 
 #canvas{
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 10px;
   z-index:1;
   border: 8px #884898 solid;
 	border-radius: 20px;
@@ -13,45 +13,17 @@ body {
 
 #video{
   position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index:-1;
+  top: 10px;
+  left: 10px;
+  z-index:0;
   border: 8px #884898 solid;
 	border-radius: 20px;
 }
 
-#userInterface{
-  display: flex;
-  flex-direction: row;
-}
-
-.EditButton{
-  position: relative;
-  -webkit-appearance: none;
-  top: 15px;
-  left: 1320px;
-  margin-bottom: 30px;
-
-  height:36px;
-  width:200px;
-  border: 2px solid #fff;
-  border-radius: 18px;
-  border-color: #fff;
-
-  background: none;
-  font-size: 14pt;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight:100;
-  color: #fff;
-
-  cursor: pointer;
-}
-
 .valueDisplay{
   position: relative;
-  left: 1325px;
+  margin-left: 665px;
   color: #f7bd8f;
-  /* margin-left: 665px; */
 
   font-size: 10pt;
   font-family: Helvetica, Arial, sans-serif;
@@ -59,11 +31,10 @@ body {
 }
 
 .Slider{
-  position: relative;
   -webkit-appearance: none;
-  /* left: 650px; */
-  /* margin-top: 5px; */
-  left: 1320px;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 665px;
   margin-bottom: 10px;
 
   background: none;
@@ -82,26 +53,42 @@ body {
   outline: none;
 }
 
-#ScreenShotButton{
+
+.imageButtons{
   position: relative;
-  top:45px;
-  left:1120px;
+  margin-top:10px;
 
   width:30px;
   height:30px;
   border: none;
-  /* border-radius: 12px; */
-
-  background: url('/images/screenshot.png');
-  border-color: #ee827c;
 
   cursor: pointer;
+}
+
+#screenshot_button{
+  margin-left: 675px;
+  background: url('/images/screenshot.png');
+}
+
+#save_drawing_button{
+  margin-left: 20px;
+  background: url('/images/savejson.png');
+}
+
+#index_UP_button{
+  margin-left: 20px;
+  background: url('/images/shapeindex_up.png');
+}
+
+#index_DOWN_button{
+  margin-left: 20px;
+  background: url('/images/shapeindex_down.png');
 }
 
 .Buttons{
   position: relative;
   -webkit-appearance: none;
-  top:85px;
+  margin-top: 10px;
 
   height:36px;
   border: 2px solid #fff;
@@ -115,22 +102,33 @@ body {
   cursor: pointer;
 }
 
-#CompleteButton{
-  left:1090px;
+#edit_button{
+  margin-top: 5px;
+  margin-left: 665px;
+  margin-bottom: 15px;
+
+  width:200px;
+  border-color: #fff;
+  font-size: 14pt;
+  color: #fff;
+}
+
+#complete_button{
+  margin-left: 665px;
   border-color: #89c3eb;
   color: #89c3eb;
   width:80px;
 }
 
-#UndoButton{
-  left:1095px;
+#undo_button{
+  margin-left: 5px;
   border-color: #fff;
   color: #fff;
   width:50px;
 }
 
-#DeleteButton{
-  left:1100px;
+#delete_button{
+  margin-left: 5px;
   border-color: #ee827c;
   color: #ee827c;
   width:60px;

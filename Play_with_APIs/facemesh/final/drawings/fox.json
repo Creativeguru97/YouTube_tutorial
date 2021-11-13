@@ -9,7 +9,7 @@
       "stroke_S": 0,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         2,
         167,
         92,
@@ -72,7 +72,7 @@
       "stroke_S": 0,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         2,
         393,
         322,
@@ -135,7 +135,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         188,
         245,
         189,
@@ -177,7 +177,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         412,
         465,
         413,
@@ -218,7 +218,7 @@
       "stroke_S": 0,
       "stroke_B": 30,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         19,
         1,
         45,
@@ -235,7 +235,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         355,
         371,
         280,
@@ -251,7 +251,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         277,
         329,
         347,
@@ -268,7 +268,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         47,
         100,
         118,
@@ -285,7 +285,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         126,
         142,
         50,
@@ -301,7 +301,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         168,
         107,
         151,
@@ -319,7 +319,7 @@
       "stroke_S": 100,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": []
+      "indices": []
     }
   ]
 }

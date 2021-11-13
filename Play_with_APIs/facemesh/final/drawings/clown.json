@@ -9,7 +9,7 @@
       "stroke_S": 0,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         14,
         87,
         178,
@@ -99,7 +99,7 @@
       "stroke_S": 0,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         152,
         175,
         199,
@@ -190,7 +190,7 @@
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         27,
         28,
         56,
@@ -219,7 +219,7 @@
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         257,
         259,
         260,
@@ -247,7 +247,7 @@
       "stroke_S": 50,
       "stroke_B": 0,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         1,
         44,
         220,
@@ -262,15 +262,15 @@
       ]
     },
     {
-      "fill_H": 265,
-      "fill_S": 50,
-      "fill_B": 65,
+      "fill_H": 355,
+      "fill_S": 0,
+      "fill_B": 30,
       "fill_O": 100,
       "stroke_H": 0,
       "stroke_S": 50,
       "stroke_B": 0,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         27,
         52,
         29,
@@ -278,15 +278,15 @@
       ]
     },
     {
-      "fill_H": 265,
-      "fill_S": 50,
-      "fill_B": 65,
+      "fill_H": 355,
+      "fill_S": 0,
+      "fill_B": 30,
       "fill_O": 100,
       "stroke_H": 0,
       "stroke_S": 50,
       "stroke_B": 0,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         23,
         101,
         24,
@@ -294,15 +294,15 @@
       ]
     },
     {
-      "fill_H": 265,
-      "fill_S": 50,
-      "fill_B": 65,
+      "fill_H": 320,
+      "fill_S": 0,
+      "fill_B": 30,
       "fill_O": 100,
       "stroke_H": 235,
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         257,
         282,
         259,
@@ -310,15 +310,15 @@
       ]
     },
     {
-      "fill_H": 265,
-      "fill_S": 50,
-      "fill_B": 65,
+      "fill_H": 320,
+      "fill_S": 0,
+      "fill_B": 30,
       "fill_O": 100,
       "stroke_H": 235,
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         253,
         330,
         254,
@@ -326,15 +326,15 @@
       ]
     },
     {
-      "fill_H": 265,
-      "fill_S": 100,
-      "fill_B": 65,
+      "fill_H": 210,
+      "fill_S": 0,
+      "fill_B": 0,
       "fill_O": 100,
-      "stroke_H": 265,
-      "stroke_S": 100,
-      "stroke_B": 65,
+      "stroke_H": 170,
+      "stroke_S": 0,
+      "stroke_B": 0,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         61,
         76,
         62,
@@ -369,15 +369,15 @@
       ]
     },
     {
-      "fill_H": 265,
-      "fill_S": 100,
-      "fill_B": 65,
+      "fill_H": 5,
+      "fill_S": 0,
+      "fill_B": 0,
       "fill_O": 100,
       "stroke_H": 50,
       "stroke_S": 50,
       "stroke_B": 100,
       "stroke_O": 0,
-      "shapeVerticies": [
+      "indices": [
         78,
         191,
         80,
@@ -408,7 +408,7 @@
       "stroke_S": 0,
       "stroke_B": 70,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         107,
         66,
         105,
@@ -425,7 +425,7 @@
       "stroke_S": 0,
       "stroke_B": 70,
       "stroke_O": 100,
-      "shapeVerticies": [
+      "indices": [
         336,
         296,
         334,
@@ -442,7 +442,7 @@
       "stroke_S": 0,
       "stroke_B": 70,
       "stroke_O": 100,
-      "shapeVerticies": []
+      "indices": []
     }
   ]
 }
