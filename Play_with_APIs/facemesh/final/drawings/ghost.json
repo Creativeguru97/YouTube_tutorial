@@ -1,0 +1,167 @@
+{
+  "shapes": [
+    {
+      "fill_H": 225,
+      "fill_S": 5,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 255,
+      "stroke_S": 50,
+      "stroke_B": 100,
+      "stroke_O": 100,
+      "indices": [
+        152,
+        148,
+        176,
+        149,
+        150,
+        136,
+        172,
+        58,
+        132,
+        93,
+        234,
+        127,
+        162,
+        21,
+        54,
+        103,
+        67,
+        109,
+        10,
+        338,
+        297,
+        332,
+        284,
+        251,
+        389,
+        356,
+        454,
+        323,
+        361,
+        288,
+        397,
+        365,
+        379,
+        378,
+        400,
+        377,
+        152
+      ]
+    },
+    {
+      "fill_H": 360,
+      "fill_S": 45,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 255,
+      "stroke_S": 50,
+      "stroke_B": 100,
+      "stroke_O": 0,
+      "indices": [
+        73,
+        180,
+        84,
+        17,
+        314,
+        404,
+        303,
+        312,
+        82,
+        73,
+        288
+      ]
+    },
+    {
+      "fill_H": 360,
+      "fill_S": 45,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 360,
+      "stroke_S": 60,
+      "stroke_B": 100,
+      "stroke_O": 100,
+      "indices": [
+        13,
+        17
+      ]
+    },
+    {
+      "fill_H": 360,
+      "fill_S": 45,
+      "fill_B": 100,
+      "fill_O": 0,
+      "stroke_H": 265,
+      "stroke_S": 50,
+      "stroke_B": 100,
+      "stroke_O": 100,
+      "indices": [
+        92,
+        73,
+        82,
+        13,
+        312,
+        303,
+        322
+      ]
+    },
+    {
+      "fill_H": 345,
+      "fill_S": 50,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 130,
+      "stroke_S": 50,
+      "stroke_B": 0,
+      "stroke_O": 100,
+      "indices": [
+        225,
+        100
+      ]
+    },
+    {
+      "fill_H": 345,
+      "fill_S": 50,
+      "fill_B": 100,
+      "fill_O": 100,
+      "stroke_H": 130,
+      "stroke_S": 50,
+      "stroke_B": 0,
+      "stroke_O": 100,
+      "indices": [
+        221,
+        117
+      ]
+    },
+    {
+      "fill_H": 345,
+      "fill_S": 50,
+      "fill_B": 100,
+      "fill_O": 0,
+      "stroke_H": 130,
+      "stroke_S": 50,
+      "stroke_B": 0,
+      "stroke_O": 100,
+      "indices": [
+        453,
+        452,
+        451,
+        450,
+        449,
+        448,
+        261
+      ]
+    },
+    {
+      "fill_H": 360,
+      "fill_S": 45,
+      "fill_B": 0,
+      "fill_O": 100,
+      "stroke_H": 265,
+      "stroke_S": 50,
+      "stroke_B": 100,
+      "stroke_O": 100,
+      "indices": []
+    }
+  ]
+}
