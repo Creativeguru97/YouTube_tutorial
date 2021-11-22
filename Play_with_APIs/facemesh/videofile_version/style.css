@@ -1,0 +1,146 @@
+body {
+  background-color: #000;
+}
+
+#canvas{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index:1;
+  border: 8px #884898 solid;
+	border-radius: 20px;
+}
+
+#inputImg{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index:1;
+  border: 8px #884898 solid;
+	border-radius: 20px;
+}
+
+#video{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index:-1;
+  border: 8px #884898 solid;
+	border-radius: 20px;
+}
+
+#userInterface{
+  display: flex;
+  flex-direction: row;
+}
+
+.EditButton{
+  position: relative;
+  -webkit-appearance: none;
+  top: 15px;
+  left: 1320px;
+  margin-bottom: 30px;
+
+  height:36px;
+  width:200px;
+  border: 2px solid #fff;
+  border-radius: 18px;
+  border-color: #fff;
+
+  background: none;
+  font-size: 14pt;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:100;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.valueDisplay{
+  position: relative;
+  left: 1325px;
+  color: #f7bd8f;
+  /* margin-left: 665px; */
+
+  font-size: 10pt;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:100;
+}
+
+.Slider{
+  position: relative;
+  -webkit-appearance: none;
+  /* left: 650px; */
+  /* margin-top: 5px; */
+  left: 1320px;
+  margin-bottom: 10px;
+
+  background: none;
+  height:12px;
+  width:200px;
+  border-radius: 6px;
+  border: 1px solid #f7bd8f;
+}
+
+.Slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width:9px;
+  height:9px;
+  border-radius: 5px;
+  background: #bf794e;
+  outline: none;
+}
+
+#ScreenShotButton{
+  position: relative;
+  top:45px;
+  left:1120px;
+
+  width:30px;
+  height:30px;
+  border: none;
+  /* border-radius: 12px; */
+
+  background: url('/images/screenshot.png');
+  border-color: #ee827c;
+
+  cursor: pointer;
+}
+
+.Buttons{
+  position: relative;
+  -webkit-appearance: none;
+  top:85px;
+
+  height:36px;
+  border: 2px solid #fff;
+  border-radius: 18px;
+
+  background: none;
+  font-size: 10pt;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:100;
+
+  cursor: pointer;
+}
+
+#CompleteButton{
+  left:1090px;
+  border-color: #89c3eb;
+  color: #89c3eb;
+  width:80px;
+}
+
+#UndoButton{
+  left:1095px;
+  border-color: #fff;
+  color: #fff;
+  width:50px;
+}
+
+#DeleteButton{
+  left:1100px;
+  border-color: #ee827c;
+  color: #ee827c;
+  width:60px;
+}
