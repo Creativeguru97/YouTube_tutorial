@@ -7,7 +7,7 @@
 * Useful p5.js tips.
 * Study with me
 
-If you find it inspiring or useful, you leave a warmful comment. That’s gonna be my motivation😊
+If you follow my tutorial and found it's inspiring or useful, leave a comment. That’s gonna be my motivation😊
 
 
 ## Some of my tutorials below
