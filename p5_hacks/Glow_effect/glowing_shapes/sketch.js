@@ -9,14 +9,11 @@ function setup(){
 }
 
 function draw(){
-  background(207, 7, 99);
+  background(230, 50, 15);
 
-  let offsetX = map(mouseX, 0, width, 20, -20);
-  let offsetY = map(mouseY, 0, height, 20, -20);
-
-  drawingContext.shadowOffsetX = offsetX;
-  drawingContext.shadowOffsetY = offsetY;
   drawingContext.shadowBlur = 12;
-  drawingContext.shadowColor = color(207, 7, 70);
+  drawingContext.shadowColor = color(207, 7, 99);
   rect(width/2, height/2, 300, 300, 30);
+  // rect(width/2, height/2, 300, 300, 30);
+  // rect(width/2, height/2, 300, 300, 30);
 }
