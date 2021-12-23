@@ -50,10 +50,12 @@ function textNeon(glowText, x, y, glowColor){
   glow(glowColor, 400);
   text(glowText, x, y);
   text(glowText, x, y);
+  text(glowText, x, y);
   glow(glowColor, 80);
   text(glowText, x, y);
   text(glowText, x, y);
   glow(glowColor, 12);
+  text(glowText, x, y);
   text(glowText, x, y);
   text(glowText, x, y);
 }

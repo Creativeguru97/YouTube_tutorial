@@ -166,7 +166,6 @@ let sketch = function(p){
           p.faceMesh();
           p.editShapes();
         }
-        p.glow();
 
         if(isDraggedOver == true){
           p.noStroke();
@@ -368,6 +367,7 @@ let sketch = function(p){
 
   p.screenShot = function(){
     p.image(capture.get(0, 0, p.width, p.height), 0, 0, p.width, p.height);
+    // p.faceMesh();
     p.drawShapes();
     p.glow();
     p.saveCanvas('screenShot', 'png');

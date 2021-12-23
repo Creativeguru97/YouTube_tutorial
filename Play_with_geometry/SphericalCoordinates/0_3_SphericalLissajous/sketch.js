@@ -1,9 +1,6 @@
 let r = 300;
-
 let freqSlider, freqSlider2;
-
 let freqValue, freqValue2;
-
 let angle = 60, angle2 = 50;
 
 function setup(){
@@ -28,7 +25,6 @@ function setup(){
 function draw(){
   background(230, 50, 15);
   orbitControl(4, 4);//Mouse control
-  //Detail about this function: https://p5js.org/reference/#/p5/orbitControl
 
   rotateY(90);
   rotateZ(40);
@@ -38,8 +34,6 @@ function draw(){
 
   freqValue.html("frequency: " + freqSlider.value());
   freqValue2.html("frequency2: " + freqSlider2.value());
-
-
 }
 
 function SphericalLissajous(){

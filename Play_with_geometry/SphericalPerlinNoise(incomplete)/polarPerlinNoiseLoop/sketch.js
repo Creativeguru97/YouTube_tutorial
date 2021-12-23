@@ -38,7 +38,6 @@ function polarPerlinNoiseLoop(){
     let x = r * cos(theta);
     let y = r * sin(theta);
     vertex(x, y);
-
   }
   endShape(CLOSE);
   zOff += 0.02;
