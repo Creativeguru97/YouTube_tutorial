@@ -23,7 +23,7 @@ If you follow my tutorial and found it's inspiring or useful, leave a comment. T
 
 [Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | [Draw tool with facemesh and p5.js](https://youtu.be/yrsxDOBL5xM)
 ------------- | ------------- | -------------
-![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png) | ![](/readMeImages/facemesh.png)
+![](/readMeImages/ComingSoon0.png)  | ![](/readMeImages/ComingSoon0.png) | ![](/readMeImages/ComingSoon0.png)
 
 
 
