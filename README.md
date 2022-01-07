@@ -21,9 +21,9 @@ If you follow my tutorial and found it's inspiring or useful, leave a comment. T
 
 ### [p5.js hacks](https://youtube.com/playlist?list=PLRD0f8kJKduJliYXq4BwRyHeSOreF4PrL)
 
-[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | [Draw tool with facemesh and p5.js](https://youtu.be/yrsxDOBL5xM)
+[Easiest Glow Effect](https://youtu.be/iIWH3IUYHzM) | [Easy gradient effect](https://youtu.be/-MUOweQ6wac) | [Fast blur effect](https://youtu.be/s7CTmJt0NfI)
 ------------- | ------------- | -------------
-![](/readMeImages/ComingSoon/ComingSoon0.png)  | ![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
+![](/readMeImages/glowEffect.png)  | ![](/readMeImages/gradientEffect.png) | ![](/readMeImages/fastBlurEffect.png)
 
 
 
