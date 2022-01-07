@@ -2,21 +2,28 @@
 ## [My channel](https://www.youtube.com/channel/UCACzb9JwH0ppt9Xwcpz9Bmw)
 
 ### I share p5.js tutorials about 
-* play with math(mostly geometry) and algorithm
+* play with geometry
 * Web API
-* Useful p5.js tips.
+* p5.js packs
 * Study with me
 
 If you follow my tutorial and found it's inspiring or useful, leave a comment. That’s gonna be my motivation😊
 
 
-## Some of my tutorials below
+## My tutorial videos below
 ### [web APIs](https://youtube.com/playlist?list=PLRD0f8kJKduLKW9uMmitwa6I_nOAI2GM6)
-
 
 [Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | [Draw tool with facemesh and p5.js](https://youtu.be/yrsxDOBL5xM)
 ------------- | ------------- | -------------
 ![](/readMeImages/faceAPI.png)  | ![](/readMeImages/handsDetection.png) | ![](/readMeImages/facemesh.png)
+
+
+
+### [p5.js hacks](https://youtube.com/playlist?list=PLRD0f8kJKduJliYXq4BwRyHeSOreF4PrL)
+
+[Face detection (webcam) for p5.js coders.](https://youtu.be/3yqANLRWGLo) | [Multiple hands detection for p5.js coders](https://youtu.be/BX8ibqq0MJU) | [Draw tool with facemesh and p5.js](https://youtu.be/yrsxDOBL5xM)
+------------- | ------------- | -------------
+![](/readMeImages/ComingSoon/ComingSoon0.png)  | ![](/readMeImages/ComingSoon/ComingSoon0.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
 
 
 
