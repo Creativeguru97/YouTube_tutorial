@@ -8,13 +8,13 @@ let inputImg;
 let shapesData;
 
 let imgIndex = 0;
-const imgLength = 534;
+const imgLength = 4;
 const resolution = 1080;
 
 function preload(){
   // shapesData = loadJSON("archive/pumpkin.json");
   // shapesData = loadJSON("archive/ghost.json");
-  // shapesData = loadJSON("archive/ghost_withEyes.json");
+  shapesData = loadJSON("archive/ghost_withEyes.json");
   // shapesData = loadJSON("archive/grey.json");
   // shapesData = loadJSON("archive/operaMask.json");
   // shapesData = loadJSON("archive/operaMask2.json");
@@ -24,7 +24,7 @@ function preload(){
   // shapesData = loadJSON("archive/clown.json");
   // shapesData = loadJSON("archive/clown2.json");
   // shapesData = loadJSON("archive/clown3.json");
-  shapesData = loadJSON("archive/guard.json");
+  // shapesData = loadJSON("archive/guard.json");
 }
 
 function setup(){
@@ -45,7 +45,6 @@ function setup(){
   frameRate(0.5);
 }
 
-
 function imageReady() {
   facemesh = ml5.facemesh(modelReady);
 
@@ -61,13 +60,7 @@ function modelReady() {
 
 function draw(){
   if (predictions.length > 0) {
-    image(inputImg, 0, 0, width, height);
-    shadow();
-    drawShapes();
-    // drawKeypoints();
-
-    if(imgIndex < imgLength) saveFrames(str(imgIndex), 'png', 1, 1);
-
+    if(imgIndex < imgLength) screenShot();
     if(imgIndex == imgLength-1) noLoop();
 
     if(imgIndex < imgLength-1){
@@ -79,6 +72,15 @@ function draw(){
   }
 }
 
+function screenShot(){
+  // image(inputImg, 0, 0, width, height);
+  clear();
+  // drawKeypoints();
+  drawShapes();
+  glow();
+  if(imgIndex < imgLength) saveFrames(str(imgIndex), 'png', 1, 1);
+}
+
 function drawKeypoints() {
   for (let i = 0; i < predictions.length; i += 1) {
     const keypoints = predictions[i].scaledMesh;
@@ -87,8 +89,8 @@ function drawKeypoints() {
     for (let j = 0; j < keypoints.length; j += 1) {
       const [x, y] = keypoints[j];
 
-      stroke(0, 0, 0);
-      strokeWeight(3);
+      stroke(100, 0, 100);
+      strokeWeight(6);
       point(x, y);
     }
   }
@@ -123,7 +125,7 @@ function drawShapes(){
   }
 }
 
-function shadow(){
+function glow(){
   drawingContext.shadowOffsetX = 0;
   drawingContext.shadowOffsetY = 0;
   drawingContext.shadowBlur = 12;
