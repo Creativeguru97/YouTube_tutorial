@@ -2,7 +2,7 @@ let layer1;
 let font;
 let greenTea;
 let bgImage;
-let smokes = [];
+let steam = [];
 
 function preload(){
   font = loadFont('assets/KouzanMouhituFontOTF.otf');
@@ -30,7 +30,7 @@ function setup(){
   layer1.imageMode(CENTER);
 
   for(let i = 0; i < 35; i++){
-    smokes.push(new Snow(20, 40));
+    steam.push(new Vapor(20, 40));
   }
 }
 
@@ -53,10 +53,10 @@ function draw(){
     48, 3, 100, 100
   );
 
-  for(let i = 0; i < smokes.length; i++){
-    smokes[i].show();
-    smokes[i].ascend();
-    smokes[i].reposition();
+  for(let i = 0; i < steam.length; i++){
+    steam[i].show();
+    steam[i].ascend();
+    steam[i].reposition();
   }
 
   image(layer1, width/2, height/2);

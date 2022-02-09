@@ -1,4 +1,4 @@
-class Snow{
+class Vapor{
   constructor(minR, maxR){
     this.min_R = minR;
     this.max_R = maxR;
