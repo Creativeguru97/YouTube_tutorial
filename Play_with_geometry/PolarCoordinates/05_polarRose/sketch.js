@@ -1,27 +1,33 @@
-let r = 200;
+let r = 480;
 let offset = 0;
 let offsetStore = offset;
 
 function setup(){
-  createCanvas(800, 800);
+  createCanvas(1000, 1000);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
-  strokeWeight(1);
+  strokeWeight(20);
   stroke(32, 18, 99, 100);//color name: 薄卵色 うすたまごいろ
   noFill();
+  pixelDensity(1);
 }
 
 function draw(){
-  background(191, 23, 36, 100);//color name: 錆鼠 さびねず
+  // background(191, 23, 36, 100);//color name: 錆鼠 さびねず
+  clear();
   translate(width/2, height/2);
 
-  shadow();
+  // shadow();
   // rose();
-  // rose2();
+  rose2();
   // madnessOfPattern();
-  polarRoseExplain(80, 6);
+  // polarRoseExplain(80, 6);
 
+}
+
+function keyTyped(){
+  if(key == "s") saveFrames("thumbnail", 'png', 1, 1);
 }
 
 function rose(){
@@ -39,9 +45,11 @@ function rose(){
 function rose2(){
   let offset = map(mouseX, 0, width, -150, 150);
   beginShape();
-  for(let theta = 0; theta < 360; theta += 1){
-    let x = (r * cos(10*theta)+offset) * cos(theta);
-    let y = (r * cos(10*theta)+offset) * sin(theta);
+  for(let theta = 0; theta < 360; theta += 0.5){
+    // let x = (r * cos(10*theta)+offset) * cos(theta);
+    // let y = (r * cos(10*theta)+offset) * sin(theta);
+    let x = (r * cos(6*theta)) * cos(theta);
+    let y = (r * cos(5*theta)) * sin(theta);
     vertex(x, y);
   }
   endShape(CLOSE);
@@ -59,6 +67,7 @@ function madnessOfPattern(){
   endShape();
 }
 
+//Set the strokeWeight(1 ~ 2)
 function polarRoseExplain(radius, freq){
   if(mouseIsPressed){
     offset = map(mouseX, 0, width, 160, -160);

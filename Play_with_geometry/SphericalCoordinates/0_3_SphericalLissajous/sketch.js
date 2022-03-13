@@ -1,10 +1,10 @@
-let r = 300;
+let r = 220;
 let freqSlider, freqSlider2;
 let freqValue, freqValue2;
 let angle = 60, angle2 = 50;
 
 function setup(){
-  createCanvas(800, 800, WEBGL);
+  createCanvas(600, 600, WEBGL);
   angleMode(DEGREES);
   colorMode(HSB);
   stroke(199, 80, 88);
@@ -13,17 +13,20 @@ function setup(){
 
   freqValue = createDiv();
   freqValue.class("valueDisplay");
-  freqSlider = createSlider(1, 12, 1, 0.01);
+  freqSlider = createSlider(1, 12, 7, 0.01);
   freqSlider.class("Slider");
 
   freqValue2 = createDiv();
   freqValue2.class("valueDisplay");
-  freqSlider2 = createSlider(1, 12, 1, 0.01);
+  freqSlider2 = createSlider(1, 12, 8, 0.01);
   freqSlider2.class("Slider");
+
+  pixelDensity(1);
 }
 
 function draw(){
-  background(230, 50, 15);
+  // background(230, 50, 15);
+  clear();
   orbitControl(4, 4);//Mouse control
 
   rotateY(90);
@@ -44,7 +47,7 @@ function SphericalLissajous(){
     let z = r * sin(theta*freqSlider.value()) * cos(theta*freqSlider2.value());
     vertex(x, y, z);
   }
-  endShape(LINES);
+  endShape(CLOSE);
 }
 
 function SphericalLissajous_Animated(){

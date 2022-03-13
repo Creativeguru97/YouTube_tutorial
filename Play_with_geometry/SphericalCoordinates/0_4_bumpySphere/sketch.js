@@ -9,12 +9,12 @@ function setup(){
   createCanvas(700, 700, WEBGL);//size(600, 400);
   angleMode(DEGREES);
   colorMode(HSB);
-  stroke(321, 38, 80);
+  stroke(199, 80, 88);
   // stroke(321, 0, 100);
-  strokeWeight(2);
+  strokeWeight(3);
   noFill();
 
-  r = width/4;
+  r = width/3;
 
   bumpiness = createDiv();
   bumpiness.class("valueDisplay");
@@ -30,10 +30,13 @@ function setup(){
   phyValue.class("valueDisplay");
   phySlider = createSlider(0, 10, 5, 0.1);
   phySlider.class("Slider");
+
+  pixelDensity(1);
 }
 
 function draw(){
-  background(230, 50, 15);
+  // background(230, 50, 15);
+  clear();
   orbitControl(4, 4);//Mouse control
 
   rotateX(65);
