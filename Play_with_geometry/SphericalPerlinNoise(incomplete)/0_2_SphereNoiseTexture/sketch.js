@@ -2,8 +2,8 @@ let r = 200;
 let noiseScale = 0;
 let noiseOffset = 0;
 
-let cols = 50;
-let rows = 50;
+let cols = 200;
+let rows = 200;
 let verticies = [];
 
 let noiseMode;
@@ -30,7 +30,8 @@ function setup(){
 }
 
 function draw(){
-  background(230, 50, 15);
+  // background(230, 50, 15);
+  clear();
   orbitControl(4, 4);//Mouse control
 
   noStroke();

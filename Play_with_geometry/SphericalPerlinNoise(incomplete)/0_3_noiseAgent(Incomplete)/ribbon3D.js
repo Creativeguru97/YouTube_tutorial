@@ -1,15 +1,13 @@
 class Ribbon3d{
 
-  constructor(theCount, hue_){
+  constructor(theCount, pos){
     this.count = theCount;//How many points has the ribbon.
     this.vectors = [];
-    this.hue = hue_;
     this.agentColor = 0;
     this.agentAlpha = 0;
-    this.thickness = 0;
 
     for(let i=0; i<this.count; i++){
-      this.vectors[i] = createVector();
+      this.vectors[i] = pos.copy();
     }
   }
 
@@ -24,16 +22,11 @@ class Ribbon3d{
     this.vectors[0].set(theP);
   }
 
-  drawLineRibbon(theWidth){//float
-    //Draw the ribbon with lines
-    noFill();
-
-    for(let i=0; i<this.count-1; i++){
-      stroke(200, 100, 100);
-
-      this.thickness = theWidth - (theWidth/this.count * i);
-      strokeWeight(this.thickness);
-      point(this.vectors[i].x, this.vectors[i].y, this.vectors[i].z);
+  drawLineRibbon(){//float
+    beginShape();
+    for(let i=0; i<this.count-1; i+=8){
+      vertex(this.vectors[i].x, this.vectors[i].y, this.vectors[i].z);
     }
+    endShape();
   }
 }

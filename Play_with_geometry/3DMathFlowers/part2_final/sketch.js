@@ -103,8 +103,8 @@ function draw(){
   }
 
   for(let theta = 0; theta < v.length; theta++){
+    fill(340, 100-theta, 100);
     for(let phi = 0; phi < v[theta].length; phi++){
-      fill(340, 100-theta, 100);
       if(theta < v.length-1 && phi < v[theta].length-1){
         beginShape();
         vertex(v[theta][phi].x, v[theta][phi].y, v[theta][phi].z);

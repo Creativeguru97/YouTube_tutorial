@@ -40,16 +40,16 @@ function draw(){
   orbitControl(4, 4);//Mouse control
 
   rotateX(65);
+  beginShape(POINTS);
   for(let theta = 0; theta < 180; theta += 2){
-    beginShape(POINTS);
     for(let phy = 0; phy < 360; phy += 2){
       let x = r*(1+bumpSlider.value()*sin(thetaSlider.value()*theta)*sin(phySlider.value()*phy)) * sin(1*theta) * cos(phy);
       let y = r*(1+bumpSlider.value()*sin(thetaSlider.value()*theta)*sin(phySlider.value()*phy)) * sin(1*theta) * sin(phy);
       let z = r*(1+bumpSlider.value()*sin(thetaSlider.value()*theta)*sin(phySlider.value()*phy)) * cos(1*theta);
       vertex(x, y, z);
     }
-    endShape();
   }
+  endShape();
 
   bumpiness.html("bumpiness: " + bumpSlider.value());
   thetaValue.html("theta value: " + thetaSlider.value());

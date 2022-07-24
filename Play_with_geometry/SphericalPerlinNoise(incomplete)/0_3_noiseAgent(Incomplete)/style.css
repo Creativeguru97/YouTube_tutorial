@@ -1,33 +1,3 @@
 body{
   background-color: #131626;
 }
-
-.valueDisplay{
-  color: #fff;
-  margin-left: 20px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight:100;
-}
-
-.Slider{
-  z-index: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: #131626;
-  height:16px;
-  border-radius: 8px;
-  border: 1px solid #fff;
-  margin-top: 5px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-.Slider::-moz-range-thumb {
-  /* -moz-appearance: none; /* Override default look */
-  -webkit-appearance: none;
-  appearance: none;
-  width:10px;
-  height:10px;
-  background: #fff;
-  outline: none;
-}
