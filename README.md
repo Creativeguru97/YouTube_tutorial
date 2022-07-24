@@ -34,6 +34,6 @@ If you follow my tutorial and found it's inspiring or useful, leave a comment. T
 ![](/readMeImages/polarCoordinates.png) | ![](/readMeImages/soundReactive.png) | ![](/readMeImages/sphericalCoordinates.png)
 
 
-[Implement Toroidal Coordinates by p5.js](https://youtu.be/iNA4yH7DAN8) | [Detailed 3D Flowers Using Math in p5.js](https://youtu.be/8fgJ6i96fTY) | Super shapes
+[Implement Toroidal Coordinates by p5.js](https://youtu.be/iNA4yH7DAN8) | [Make 3D Math Flowers in p5.js](https://youtu.be/8fgJ6i96fTY) | Super shapes
 ------------- | ------------- | -------------
 ![](/readMeImages/toroidalCoordinates.png) | ![](/readMeImages/MathFlower.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
