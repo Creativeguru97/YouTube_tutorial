@@ -5,7 +5,7 @@ I take you p5 guys/girls to the Next Level with my tutorials.
 Combine p5.js with 
 * Machine learning APIs
 * Math equations, 
-* Glow effects, Gradient effects... 
+* Glow effects, Gradient effects...  
 I cover a lot of topics you will be excited about.  
 If you're into p5.js and looking for some inspiration and tips, you're in the right place.
 
