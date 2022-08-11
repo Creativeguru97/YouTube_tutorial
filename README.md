@@ -1,14 +1,7 @@
 # Welcome to my YouTube tutorial page  
 ## [My channel](https://www.youtube.com/channel/UCACzb9JwH0ppt9Xwcpz9Bmw)
 
-### I share p5.js tutorials about 
-* play with geometry
-* Web API
-* p5.js packs
-* Study with me
-
-If you follow my tutorial and found it's inspiring or useful, leave a comment. That’s gonna be my motivation😊
-
+### I take you p5 guys/girls to the Next Level with my tutorials. Combine p5.js with Machine learning APIs, Math equations, Glow effects, gradient effects... I cover a lot of topics you will be excited about. If you're into p5.js and looking for some inspiration and tips, you're in the right place.
 
 ## My tutorial videos below
 ### [web APIs](https://youtube.com/playlist?list=PLRD0f8kJKduLKW9uMmitwa6I_nOAI2GM6)
