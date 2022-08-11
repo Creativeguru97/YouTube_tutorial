@@ -1,7 +1,13 @@
 # Welcome to my YouTube tutorial page  
 ## [My channel](https://www.youtube.com/channel/UCACzb9JwH0ppt9Xwcpz9Bmw)
 
-### I take you p5 guys/girls to the Next Level with my tutorials. Combine p5.js with Machine learning APIs, Math equations, Glow effects, gradient effects... I cover a lot of topics you will be excited about. If you're into p5.js and looking for some inspiration and tips, you're in the right place.
+### I take you p5 guys/girls to the Next Level with my tutorials. 
+Combine p5.js with 
+*Machine learning APIs
+*Math equations, 
+*Glow effects, Gradient effects... 
+I cover a lot of topics you will be excited about. 
+If you're into p5.js and looking for some inspiration and tips, you're in the right place.
 
 ## My tutorial videos below
 ### [web APIs](https://youtube.com/playlist?list=PLRD0f8kJKduLKW9uMmitwa6I_nOAI2GM6)
