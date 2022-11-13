@@ -27,11 +27,11 @@ function draw(){
   counter++;
 }
 
-function polarPerlinNoiseLoop(){
-  let x = xNoise.value(a);
-  let y = yNoise.value(a);
-  ellipse(x, y, 100, 100);
-}
+// function polarPerlinNoiseLoop(){
+//   let x = xNoise.value(a);
+//   let y = yNoise.value(a);
+//   ellipse(x, y, 100, 100);
+// }
 
 function shadow(){
   drawingContext.shadowOffsetX = 1;
