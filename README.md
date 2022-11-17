@@ -37,3 +37,11 @@ If you're into p5.js and looking for some inspiration and tips, you're in the ri
 [Implement Toroidal Coordinates by p5.js](https://youtu.be/iNA4yH7DAN8) | [Make 3D Math Flowers in p5.js](https://youtu.be/8fgJ6i96fTY) | Super shapes
 ------------- | ------------- | -------------
 ![](/readMeImages/toroidalCoordinates.png) | ![](/readMeImages/MathFlower.png) | ![](/readMeImages/ComingSoon/ComingSoon0.png)
+
+
+
+### [Play with noise](https://youtube.com/playlist?list=PLRD0f8kJKduJliYXq4BwRyHeSOreF4PrL)
+
+[Make a planet in p5.js](https://youtu.be/CuD_HHrmDiA) | [Water surface effect in p5.js](https://youtu.be/kUexPZMIwuA)
+------------- | -------------
+![](/readMeImages/planet.png)  | ![](/readMeImages/waterSurface.png)
